@@ -112,9 +112,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-co'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Bogota'
 
 USE_I18N = True
 
@@ -139,7 +139,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Permite todas las solicitudes de todos los dominios
 CORS_ALLOW_ALL_ORIGINS = True
 
-# autoriza rutas para poderse ejecutar (en este caso la de Next.js)
+# autoriza rutas para poderse ejecutar (en este caso la de Next.js y la de Flutter)
 CORS_ALLOWED_ORIGINS = ['http://localhost:3000']
 
 # Configuración de esquema para que django rest framework y coreapi puedan documentar el código
