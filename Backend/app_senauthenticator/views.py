@@ -1,13 +1,26 @@
 
 # Apis del proyecto, para enviar y recibir información de manera eficiente
-
 from rest_framework import generics
-
 # se importan los modelos 
 from .models import RegistroFacial, Programa, Ficha, Usuario, Objeto, ContactoEmergencia, Ingreso
 # se importan los serializers
 from .serializers import RegistroFacialSerializer, ProgramaSerializer, FichaSerializer, UsuarioSerializer, ObjetoSerializer, ContactoEmergenciaSerializer, IngresoSerializer
 
+# extensiones para hacer las autenticaciones
+
+from rest_framework import api_view
+# En esta importamos todos los controladores de serializer
+from .serializers import *
+
+from rest_framework.response import Response
+# Aquí importo como una función para crear los tokens
+from rest_framework.authtoken.models import Token
+from rest_framework import status
+
+from django.shortcuts import get_list_or_404
+from rest_framework.decorators import authentication_classes
+from rest_framework. permissions import IsAuthenticated
+from rest_framework.authentication import TokenAuthentication
 
 # api de los programas de formación
 class RegistroFacialListarCrear(generics.ListCreateAPIView): # la vista generica ListCreateAPIView maneja las solicitudes listar y crear (GET, POST)
