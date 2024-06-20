@@ -30,7 +30,7 @@ genero = [
 ]
     
 class RegistroFacial(models.Model):
-    datos_biometricos_registro=models.ImageField(upload_to=f'foto_registro')
+    datos_biometricos_registro=models.ImageField(upload_to=f'datos_biometricos_registro')
     fecha_hora_registro=models.DateTimeField(auto_now_add=True)    
     
 class Programa(models.Model):
