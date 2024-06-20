@@ -4,6 +4,14 @@ module.exports = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.css",
+    "./app/**/*.js",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.js",
+    "./app/**/*.jsx",
+    "./app/**/*.ts",
+    "./app/**/*.tsx",
+    "./app/**/*.mdx",
   ],
   theme: {
     extend: {
