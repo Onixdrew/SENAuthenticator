@@ -1,5 +1,6 @@
 from djongo import models
 
+
 tipo_documento=[
     ('Tarjeta de Identidad','Tarjeta de Identidad'),
     ('Cedula de ciudadania','Cedula de ciudadania'),
