@@ -1,4 +1,4 @@
-from django.db import models
+from djongo import models
 
 tipo_documento=[
     ('Tarjeta de Identidad','Tarjeta de Identidad'),
@@ -28,20 +28,12 @@ genero = [
     ('Masculino', 'Masculino'),
     ('Femenino', 'Femenino'),
 ]
-
-class ContactoEmergencia(models.Model):
-    nombre_cntEmerg=models.CharField(max_length=50)
-    apellido_cntEmerg=models.CharField(max_length=50)
-    celular_cntEmerg=models.CharField(max_length=12)
-    parentezco_cntEmerg=models.CharField(max_length=30)
-    genero_cntEmerg=models.CharField(max_length=20, choices=genero)  
     
 class RegistroFacial(models.Model):
     datos_biometricos_registro=models.ImageField(upload_to=f'foto_registro')
     fecha_hora_registro=models.DateTimeField(auto_now_add=True)    
     
 class Programa(models.Model):
-    codigo_programa=models.CharField(max_length=20,unique=True)
     nombre_programa=models.CharField(max_length=100)
     tipo_formacion_programa=models.CharField(max_length=30,choices=tipo_formacion)
     
@@ -62,7 +54,6 @@ class Usuario(models.Model):
     numero_documento_usuario=models.CharField(max_length=20, unique=True)
     rol_usuario = models.CharField(max_length=13, choices=tipo_rol) 
     registro_facial_usuario=models.ForeignKey(RegistroFacial, on_delete=models.PROTECT, null=True)
-    contacto_emergencia_usuario=models.ForeignKey(ContactoEmergencia, on_delete=models.PROTECT, null=True)
     ficha_usuario=models.ForeignKey(Ficha,on_delete=models.PROTECT, null=True)
 
 class Objeto(models.Model):
@@ -71,6 +62,14 @@ class Objeto(models.Model):
     descripcion_objeto=models.TextField(max_length=1000)
     foto_objeto=models.ImageField(upload_to=f"foto_objeto",blank=True)
     usuario_objeto=models.ForeignKey(Usuario, on_delete=models.PROTECT, null=True)
+
+class ContactoEmergencia(models.Model):
+    nombre_cntEmerg=models.CharField(max_length=50)
+    apellido_cntEmerg=models.CharField(max_length=50)
+    celular_cntEmerg=models.CharField(max_length=12)
+    parentezco_cntEmerg=models.CharField(max_length=30)
+    genero_cntEmerg=models.CharField(max_length=20, choices=genero)  
+    usuario_cntEmerg=models.ForeignKey(Usuario, on_delete=models.PROTECT, null=True)
 
 class Ingreso(models.Model):
     fecha_hora_ingreso=models.DateTimeField(auto_now_add=True)
