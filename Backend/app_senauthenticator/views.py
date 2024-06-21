@@ -146,7 +146,7 @@ def register(request):
         serializer.save()
         
         user= UsuarioSerializer.objects.get(nombre_usuario= serializer.data["username"])
-        user.set_password(serializer.data['password'])
+        user.set_password(serializer.data['contrasenia_usuario'])
         user.save()
         token = Token.objects.create(nombre_usuarior= user)
         return Response ({'token': token.key, "user": serializer.data}, status=status.HTTP_201_CREATED)
