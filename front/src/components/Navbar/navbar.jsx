@@ -12,7 +12,7 @@ import "../media/Style/navbarVigilante.css";
 import avatar from "../media/Img/Vigilante.png";
 import Logo from "../../appMedia/Img/Logo Reconocimiento Facial - Blanco.png";
 
-export default function Navbar({ op1, op2, op3, link1, link2 }) {
+export default function Navbar({ op1, op2, op3, link1, link2, link3 }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
