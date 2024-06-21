@@ -5,13 +5,6 @@
     box-sizing: border-box;
 }
 
-/* .fondop{
-    background-image: url('../Img/FondoLogin.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-} */
-
 /* Estilos etiqueta a */
 
 a{
@@ -21,7 +14,7 @@ a{
 /* Estilos contendor padre */
 .bb{
     position: relative;
-    background-image: url('../../../public/assets/FondoLogin.jpg');
+    background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8fe6da81436849.5cffaef4c8c0a.gif');
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -213,3 +206,12 @@ select option:hover {
     /* height: 30vh; */
 }
 
+
+/* Medias Query */
+
+@media (max-width: 480px) {
+    .bb {
+        background-color: black;
+        background-image: none;
+    }
+}
