@@ -146,7 +146,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Login()));
+                              builder: (context) => Login()));
                     },
                     child: const Text('Regresar al inicio'),
 
