@@ -85,6 +85,9 @@ flutter:
     - images/post_7.jpeg
     - images/post_8.jpeg
     - images/story.jpeg
+    - images/register/logoSenaBlanco.png
+    - images/login/LogoReconocimientoFacialBlanco.png
+    - images/login/logoSenaBlanco.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
