@@ -5,7 +5,7 @@ const NavbarAdministrativo = ({ op1, op2, op3 }) => {
     <nav>
       <ul>
         <li>
-          <Link href="/">
+          <Link href="/Home">
             <a>{op1}</a>
           </Link>
         </li>
