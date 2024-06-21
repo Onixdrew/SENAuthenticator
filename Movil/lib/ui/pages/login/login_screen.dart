@@ -3,13 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:reconocimiento_app/ui/pages/home/home_page.dart';
 import 'package:reconocimiento_app/ui/pages/register/register_screen.dart';
 
-// Clase Login que extiende de StatefulWidget
 class Login extends StatefulWidget {
-  const Login({super.key});
-
   @override
   State<Login> createState() => _LoginState();
 }
+
 
 // Estado interno de la clase Login
 class _LoginState extends State<Login> {
@@ -92,6 +90,7 @@ class _LoginState extends State<Login> {
             right: 0,
             child: Image.asset('images/login/logoSenaBlanco.png', height: 50),
           ),
+
           // Contenedor blanco con bordes redondeados
           Container(
             decoration: BoxDecoration(

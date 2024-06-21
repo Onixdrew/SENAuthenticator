@@ -3,9 +3,8 @@ import 'package:reconocimiento_app/ui/pages/login/login_screen.dart';
 
 // Clase RegisterScreen que extiende de StatefulWidget
 class RegisterScreen extends StatefulWidget {
-  const RegisterScreen({super.key});
-
   @override
+
   // Estado interno de la clase RegisterScreen
   // ignore: library_private_types_in_public_api
   _RegisterScreenState createState() => _RegisterScreenState();
@@ -14,6 +13,7 @@ class RegisterScreen extends StatefulWidget {
 // Estado interno de la clase RegisterScreen
 class _RegisterScreenState extends State<RegisterScreen> {
   // Variable para almacenar el tipo de documento seleccionado
+
   String _selectedDocumentType = 'Cédula Ciudadana';
 
   @override
@@ -29,11 +29,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
             Image.asset('images/register/logoSenaBlanco.png', height: 100),
             const SizedBox(height: 20),
             // Contenedor blanco con bordes redondeados
+
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
+              
               margin: const EdgeInsets.symmetric(horizontal: 20),
               padding: const EdgeInsets.all(20),
               child: Column(
@@ -48,12 +50,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     textAlign: TextAlign.center,
                   ),
+                  
                   const SizedBox(height: 20),
                   // Selección de tipo de documento
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text(
+
                         'Tipo de documento',
                         style: TextStyle(
                           fontSize: 18,
@@ -145,6 +149,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               builder: (context) => const Login()));
                     },
                     child: const Text('Regresar al inicio'),
+
                   ),
                 ],
               ),
