@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import "../style.css";
 import logoSENA from "../../../../public/assets/logo-sena-naranja-png-2022.png";
@@ -12,7 +13,7 @@ const CarnetAprendiz = () => {
           <div>
             {/* <img src={logoSENA} alt="Logo SENA" className="w-20" /> */}
 
-            <Image src={logoSENA} width={500} height={500} alt="Logo SENA" />
+            <Image src={logoSENA} className="w-20" alt="Logo SENA" />
           </div>
 
           {/* <img
@@ -21,10 +22,10 @@ const CarnetAprendiz = () => {
             className="w-28 ml-7 border border-black"
           /> */}
 
-          <Image src={fotoPerfil} width={500} height={500} alt="Foto" />
+          <Image src={fotoPerfil} className="w-28 ml-7 border border-black" alt="Foto" />
 
           <div>
-            <p className="apre">Aprendiz</p>
+            <p className="apre z-0">Aprendiz</p>
           </div>
         </div>
         <div className="w-72 ml-4 h-1 mt-1 bg-orange-500"></div>

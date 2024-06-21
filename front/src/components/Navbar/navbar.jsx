@@ -12,11 +12,11 @@ import "../media/Style/navbarVigilante.css";
 import avatar from "../media/Img/Vigilante.png";
 import Logo from "../../appMedia/Img/Logo Reconocimiento Facial - Blanco.png";
 
-export default function Navbar({ op1, op2, op3 }) {
+export default function Navbar({ op1, op2, op3, link1, link2 }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="Nav">
+    <div className="Nav ">
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-6">
@@ -46,17 +46,17 @@ export default function Navbar({ op1, op2, op3 }) {
           </div>
           <div className="hidden md:flex items-center gap-2">
             <div className="flex justify-center items-center ÑÑ">
-              <Link href="">
+              <Link href={link1}>
                 <span className="text-white hover:text-gray-200 px-3 py-2 rounded-md text-base font-bold">
                   {op1}
                 </span>
               </Link>
-              <Link href="">
+              <Link href={link2}>
                 <span className="text-white hover:text-gray-200 font-bold px-3 py-2 rounded-md text-base">
                   {op2}
                 </span>
               </Link>
-              <Link href="">
+              <Link href=''>
                 <span className="text-white hover:text-gray-200 font-bold px-3 py-2 rounded-md text-base">
                   {op3}
                 </span>
@@ -111,17 +111,17 @@ export default function Navbar({ op1, op2, op3 }) {
         {(ref) => (
           <div ref={ref} className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link href="">
+              <Link href={link1}>
                 <span className="text-white hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">
                   {op1}
                 </span>
               </Link>
-              <Link href="">
+              <Link href={link2}>
                 <span className="text-white hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">
                   {op2}
                 </span>
               </Link>
-              <Link href="">
+              <Link href=''>
                 <span className="text-white hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">
                   {op3}
                 </span>

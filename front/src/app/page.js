@@ -70,7 +70,7 @@ export default function Home() {
                       <Link href="/Administrativo">Administrativo</Link>
                       <Link href="/Guardia/guardiaHome">Vigilante</Link>
                       <Link href="/Instructor">Instructor</Link>
-                      <Link href="/Aprendiz">Aprendiz</Link>
+                      <Link href="/Aprendiz/inicio">Aprendiz</Link>
                     </div>
                   </div>
                 </Modal>

@@ -1,6 +1,7 @@
-import Navbar from "../components/Navbar";
+'use client'
+import Navbar from "../../../components/Navbar/navbar";
 import FormObjetos from "../components/FormObjetos";
-import imgFormObjetos from "../../../../public/assets/espacio-trabajo-tecnologia-d-isometrica.avif";
+import imgFormObjetos from "../../../../public/assets/FondoLogin.jpg";
 import Footer from "../components/Footer";
 import { useState } from "react";
 import { PiProhibitBold } from "react-icons/pi";
@@ -23,7 +24,7 @@ const Objetos_Aprendiz = () => {
   return (
     <>
       <div>
-        <Navbar></Navbar>
+        <div className="fixed z-50 w-full"><Navbar op1='Inicio' op2='Mis Objetos' link1='/Aprendiz/inicio' link2='/Aprendiz/Objetos'></Navbar></div>
 
         <div className="flex flex-col ">
           <div className="flex container mx-auto flex-col">
@@ -118,11 +119,11 @@ const Objetos_Aprendiz = () => {
               </div>
             </div>
 
-            <div className="flex flex-col mt-[5vh] lg:mt-[12vh] md:ml-[9vw] md:mt-[17vh] md:w-[70%] ">
+            <div className="flex flex-col wrap mt-[5vh] lg:mt-[12vh] md:ml-[9vw] md:mt-[17vh] md:w-[70%] ">
               <h2 className="md:ml-[20vw] md:mb-[5vh] text-2xl  text-center">
                 Objetos Inactivos
               </h2>
-              <div className="flex gap-10  p-5">
+              <div className="flex gap-10  p-5 ">
                 <span
                   onClick={openModal}
                   className="border bg-gray-700 rounded-xl hover:-translate-y-1 hover:scale-110 border-black space-x-5 flex flex-col w-full sm:w-[45%] lg:w-[30%] text-white"
