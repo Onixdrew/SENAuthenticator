@@ -68,7 +68,7 @@ export default function Login() {
                         <Link href="/Administrador/AdministradorHome">Administrativo</Link>
                         <Link href="/Guardia/guardiaHome">Vigilante</Link>
                         <Link href="/Instructor">Instructor</Link>
-                        <Link href="/Aprendiz">Aprendiz</Link>
+                        <Link href="/Aprendiz/inicio">Aprendiz</Link>
                       </div>
                     </div>
                   </Modal>

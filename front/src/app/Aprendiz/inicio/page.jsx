@@ -3,6 +3,7 @@ import React from "react";
 import CarnetAprendiz from "../components/Carnet";
 import Footer from "../components/Footer";
 import Navbar from "../../../components/Navbar/navbar";
+// import Navbar from "../components/Navbar"
 
 const Inicio_Aprendiz = () => {
   return (
