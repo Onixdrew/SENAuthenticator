@@ -22,6 +22,7 @@ from rest_framework.decorators import authentication_classes
 from rest_framework. permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 
+
 # Controlador de los programas de formación
 class RegistroFacialListarCrear(generics.ListCreateAPIView): # la vista generica ListCreateAPIView maneja las solicitudes listar y crear (GET, POST)
     queryset = RegistroFacial.objects.all() # se obtienen todos los objetos del modelo
@@ -90,3 +91,13 @@ class IngresoListarCrear(generics.ListCreateAPIView):
 class IngresoDetalles(generics.RetrieveUpdateDestroyAPIView):
     queryset = Ingreso.objects.all()
     serializer_class = IngresoSerializer
+
+
+# Controladores nuevos
+
+@api_view(['GET', 'POST', 'PUT', 'DELETE'])
+def registro_facial_controlador(request, pk=None):
+    # Si existe la pk se obtiene el dato
+    if pk:
+        try:
+            registro_facial = get_object
