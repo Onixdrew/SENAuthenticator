@@ -392,3 +392,138 @@ export default Objetos_Aprendiz;
 // };
 
 // export default Objetos_Aprendiz;
+
+
+
+
+
+
+import Navbar from "../../../components/Navbar/navbar";
+import FormObjetos from "../components/FormObjetos";
+import imgFormObjetos from "../../../../public/assets/FondoLogin.jpg";
+import Footer from "../components/Footer";
+// import { useState } from 'react';
+import Cartas from "../components/cardObjetos";
+// import { PiProhibitBold } from "react-icons/pi";
+// import { TiDelete } from "react-icons/ti";
+
+
+
+
+ 
+const Objetos_Aprendiz =  () =>{
+
+
+  // Estado para controlar si el modal está abierto o cerrado
+  // const [modalOpen, setModalOpen] =  await useState(false);
+
+  // Función para abrir el modal
+  // const openModal = () => {
+  //   setModalOpen(true);
+  // };
+
+  // // Función para cerrar el modal
+  // const closeModal = () => {
+  //   setModalOpen(false);
+  // };
+
+  return (
+    <>
+      {/* <div>
+        <div className="fixed z-50 w-full">
+          <Navbar
+            op1="Inicio"
+            op2="Mis Objetos"
+            link1="/Aprendiz/inicio"
+            link2="/Aprendiz/Objetos"
+            link3=''         
+          ></Navbar>
+        </div> */}
+
+        <div>
+        <h1>hola</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, sapiente ipsa. Aspernatur ullam dicta rerum, similique accusantium est sequi pariatur in perspiciatis, quia reiciendis quaerat ducimus odio quis labore non.</p>
+        <Cartas></Cartas>
+        <Footer className="mt-auto"></Footer>
+
+      </div>
+    </>
+  );
+};
+
+export default Objetos_Aprendiz;
+
+// //////////////////////////////////////////// footer responsivo
+
+// import NavbarAprendiz from "../componentes/navbar";
+// import FormObjetos from "./formObjetos";
+// import imgFormObjetos from "../../../../public/assets/espacio-trabajo-tecnologia-d-isometrica.avif";
+// import Footer from "../componentes/footer";
+// import { useState } from "react";
+// import { PiProhibitBold } from "react-icons/pi";
+// import { TiDelete } from "react-icons/ti";
+
+// const Objetos_Aprendiz = () => {
+//   // Estado para controlar si el modal está abierto o cerrado
+//   const [modalOpen, setModalOpen] = useState(false);
+
+//   // Función para abrir el modal
+//   const openModal = () => {
+//     setModalOpen(true);
+//   };
+
+//   // Función para cerrar el modal
+//   const closeModal = () => {
+//     setModalOpen(false);
+//   };
+
+//   return (
+//     <>
+//       <div>
+//         <NavbarAprendiz></NavbarAprendiz>
+
+//         <div className="flex flex-col ">
+//           <div className="flex container mx-auto flex-col">
+//             <div className="flex mt-[20vh] flex-col md:ml-[9vw] md:mt-[17vh] md:w-[70%] ">
+//               <h2 className="md:ml-[20vw] md:mb-[5vh]  text-center text-green-700 text-2xl">
+//                 Objetos activos
+//               </h2>
+//               <div className="flex gap-10  p-5">
+//                 {/* Contenido de objetos activos */}
+//               </div>
+//             </div>
+
+//             <div className="flex flex-col mt-[5vh] lg:mt-[12vh] md:ml-[9vw] md:mt-[17vh] md:w-[70%] ">
+//               <h2 className="md:ml-[20vw] md:mb-[5vh] text-2xl  text-center">
+//                 Objetos Inactivos
+//               </h2>
+//               <div className="flex gap-10  p-5">
+//                 {/* Contenido de objetos inactivos */}
+//               </div>
+
+//               <div className=" rounded-lg rounded-t-3xl rounded-b-3xl mt-[10vh]  bg-[url({imgFormObjetos})] ">
+//                 <FormObjetos></FormObjetos>
+//               </div>
+
+//               {/* Modal */}
+
+//               {modalOpen && (
+//                 <div className="fixed z-50 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
+//                   <div className="bg-white rounded-lg shadow-lg p-6 w-full max-w-[90vw] max-h-[90vh] overflow-auto relative">
+//                     {/* Contenido del modal */}
+//                   </div>
+//                 </div>
+//               )}
+//             </div>
+//           </div>
+
+//         </div>
+//         {/* Footer responsivo */}
+//         <Footer className="mt-auto"></Footer>
+//       </div>
+//     </>
+//   );
+// };
+
+// export default Objetos_Aprendiz;
+
