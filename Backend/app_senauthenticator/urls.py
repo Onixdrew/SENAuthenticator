@@ -4,8 +4,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('registroFacial/', views.RegistroFacialListarCrear.as_view()),
-    path('registroFacial/<int:pk>/', views.RegistroFacialDetalles.as_view()),
+    path('registroFacial/', views.registro_facial_controlador),
+    path('registroFacial/<int:pk>/', views.registro_facial_controlador),
     path('programa/', views.ProgramaListarCrear.as_view()),
     path('programa/<int:pk>/', views.ProgramaDetalles.as_view()),
     path('ficha/', views.FichaListarCrear.as_view()),
@@ -18,9 +18,9 @@ urlpatterns = [
     path('contactoEmergencia/<int:pk>/', views.ContactoEmergenciaDetalles.as_view()),
     path('ingreso/', views.IngresoListarCrear.as_view()),
     path('ingreso/<int:pk>/', views.IngresoDetalles.as_view()),
-    re_path('login', views.login()),
-    re_path('register', views.register()),
-    re_path('profile', views.profile())
+    # re_path('login', views.login()),
+    # re_path('register', views.register()),
+    # re_path('profile', views.profile())
 ]
 
 if settings.DEBUG:
