@@ -1,5 +1,5 @@
 
-# Los serializer convierten los tipos de datos a formato json, para que puedan ser utilizados a través de una API.
+# Los serializer convierten los datos a formato json, para que puedan ser utilizados a través de una API.
 
 from rest_framework import serializers
 
@@ -10,8 +10,8 @@ from .models import RegistroFacial, Programa, Ficha, Usuario, Objeto, ContactoEm
 # Serializer del Registro Facial
 class RegistroFacialSerializer(serializers.ModelSerializer):
     class Meta: # se utiliza la clase Meta para definir la estructura del serializer
-        model = RegistroFacial  # se define el modelo
-        fields = '__all__'  # indica que va a utilizar todos los campos del modelo
+        model = RegistroFacial  # se define el modelo que se va a serializar
+        fields = '__all__'  # se indica que se van a convertir todos los campos a formato json
 
 
 # Serializer del Programa de formación
@@ -54,3 +54,4 @@ class IngresoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingreso
         fields = '__all__'
+
