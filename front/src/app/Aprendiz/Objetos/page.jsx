@@ -9,10 +9,13 @@ import { TiDelete } from "react-icons/ti";
 
 
 
-const Objetos_Aprendiz = ({objetos}) => {
+
+ 
+const Objetos_Aprendiz =() =>{
+
   // Estado para controlar si el modal está abierto o cerrado
   const [modalOpen, setModalOpen] = useState(false);
-  console.log(objetos);
+
   // Función para abrir el modal
   const openModal = () => {
     setModalOpen(true);
@@ -32,6 +35,7 @@ const Objetos_Aprendiz = ({objetos}) => {
             op2="Mis Objetos"
             link1="/Aprendiz/inicio"
             link2="/Aprendiz/Objetos"
+            link3=''         
           ></Navbar>
         </div>
 
@@ -42,6 +46,17 @@ const Objetos_Aprendiz = ({objetos}) => {
                 Objetos activos
               </h2>
               <div className="flex gap-10  p-5">
+                
+                {
+                  data.map(dato=>{
+                    <div key={dato.id}>
+                      <h1>{dato.name}</h1>
+                      <h1>{dato.status}</h1>
+                      <h1>{dato.species}</h1>
+                    </div>
+                  })
+                }
+
                 <span
                   onClick={openModal}
                   className="border bg-gray-700 rounded-xl hover:-translate-y-1 hover:scale-110 border-black space-x-5 flex flex-col w-full sm:w-[45%] lg:w-[30%] text-white"
@@ -296,27 +311,11 @@ const Objetos_Aprendiz = ({objetos}) => {
           </div>
         </div>
         <Footer className="mt-auto"></Footer>
+
       </div>
     </>
   );
 };
-
-
-// //////// Consumo de API
-
-export const  getServerSideProps= async (context)=> {
-
-  const response= await fetch('https://rickandmortyapi.com/api/character')
-  const objetos= await response.json()
-
-  return {
-    props:{
-      objetos:objetos
-    }
-  }
-
-}
-
 
 export default Objetos_Aprendiz;
 

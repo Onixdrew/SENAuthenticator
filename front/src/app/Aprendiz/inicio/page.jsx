@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import CarnetAprendiz from "../components/Carnet";
 import Footer from "../components/Footer";
@@ -9,7 +9,15 @@ const Inicio_Aprendiz = () => {
   return (
     <>
       <div>
-        <div className="fixed z-50 w-full"><Navbar op1='Inicio' op2='Mis Objetos' link1='/Aprendiz/inicio' link2='/Aprendiz/Objetos' /></div>
+        <div className="fixed z-50 w-full">
+          <Navbar
+            op1="Inicio"
+            op2="Mis Objetos"
+            link1="/Aprendiz/inicio"
+            link2="/Aprendiz/Objetos"
+            link3=''
+          />
+        </div>
 
         <div className="flex flex-col  lg:flex-row justify-center items-start mt-[30vh] lg:mt-[20vh] sm:mt-[17vh]  min-mt-10 md:mt-[20vh] flex-wrap px-4 space-y-5 lg:space-y-0 lg:space-x-10">
           <div className="flex-shrink-0 ">
@@ -17,9 +25,7 @@ const Inicio_Aprendiz = () => {
           </div>
 
           <div className="mt-5 lg:mt-0 lg:ml-10 lg:w-1/2">
-            <h1 className="text-xl font-semibold text-center ">
-              Novedades
-            </h1>
+            <h1 className="text-xl font-semibold text-center ">Novedades</h1>
             <p className="mt-3 text-justify">
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos, et,
               ad nemo esse consequuntur officiis delectus repellendus qui

@@ -56,7 +56,7 @@ export default function Navbar({ op1, op2, op3, link1, link2, link3 }) {
                   {op2}
                 </span>
               </Link>
-              <Link href=''>
+              <Link href={link3}>
                 <span className="text-white hover:text-gray-200 font-bold px-3 py-2 rounded-md text-base">
                   {op3}
                 </span>
@@ -121,7 +121,7 @@ export default function Navbar({ op1, op2, op3, link1, link2, link3 }) {
                   {op2}
                 </span>
               </Link>
-              <Link href=''>
+              <Link href={link3}>
                 <span className="text-white hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">
                   {op3}
                 </span>
