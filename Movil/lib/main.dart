@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
       ),
       // Establece la pagina de inicio de la aplicacion como MyHomePage.
       // Este widget sera la pantalla principal que se muestra cuando la aplicación se inicia.
-      home:  Login(),
+      home:  const Login(),
       routes: {
         // '/login': (context) => const RegisterScreen(),
         '/home': (context) => const MyHomePage(),
