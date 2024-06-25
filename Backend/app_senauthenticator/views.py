@@ -8,7 +8,7 @@ from .serializers import RegistroFacialSerializer, ProgramaSerializer, FichaSeri
 
 # extensiones para hacer las autenticaciones
 
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, authentication_classes, permission_classes
 # En esta importamos todos los controladores de serializer
 from .serializers import *
 
@@ -18,8 +18,7 @@ from rest_framework.authtoken.models import Token
 from rest_framework import status
 
 from django.shortcuts import get_object_or_404
-from rest_framework.decorators import authentication_classes
-from rest_framework. permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication
 
 # Controlador de los programas de formación
