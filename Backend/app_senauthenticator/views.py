@@ -59,7 +59,7 @@ class FichaListarCrear(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
 class FichaDetalles(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Ficha.objects.all()    
+    queryset = Ficha.objects.all()
     serializer_class = FichaSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
@@ -67,7 +67,7 @@ class FichaDetalles(generics.RetrieveUpdateDestroyAPIView):
 
 # Controlador de los Usuarios
 class UsuarioListarCrear(generics.ListCreateAPIView):
-    queryset = Usuario.objects.all()    
+    queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
@@ -79,7 +79,7 @@ class UsuarioDetalles(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
 
 
-# Controlador de los Objetos que registran los Usuarios    
+# Controlador de los Objetos que registran los Usuarios
 class ObjetoListarCrear(generics.ListCreateAPIView):
     queryset = Objeto.objects.all()
     serializer_class = ObjetoSerializer

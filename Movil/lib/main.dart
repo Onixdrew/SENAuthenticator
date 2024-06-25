@@ -3,7 +3,7 @@ import 'package:reconocimiento_app/ui/pages/home/home_page.dart';
 import 'package:reconocimiento_app/ui/pages/login/login_screen.dart';
 //import 'package:reconocimiento_app/ui/pages/register/register_screen.dart';
 
-// Punto de entrada de la aplicacion.
+// Punto de entrada de la aplicacion.|
 void main() {
   runApp(const MyApp());
 }
