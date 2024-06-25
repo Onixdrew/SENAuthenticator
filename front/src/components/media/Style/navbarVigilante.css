@@ -11,7 +11,10 @@
     border-radius: 50px;
 }
 
-.SalirNav{
+.ml-custom {
+    margin-right:11rem; /* Puedes ajustar este valor según tus necesidades */
+  }
+/* .SalirNav{
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -24,8 +27,8 @@
 
 .SalirNav i {
     width: 10%;
-}
+} */
 
 .ÑÑ{
-    margin-right: 20rem;
+    margin-right: 4rem;
 }

@@ -10,13 +10,13 @@ import "../media/Style/navbar.css";
 import "../media/Style/navbarVigilante.css";
 
 import avatar from "../media/Img/Vigilante.png";
-import Logo from "../../appMedia/Img/Logo Reconocimiento Facial - Blanco.png";
+import Logo from "../../../public/assets/Img/Logo Reconocimiento Facial - Blanco.png";
 
-export default function Navbar({ op1, op2, op3 }) {
+export default function Navbar({ op1, op2, op3,Link1, Link2, Link3 }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="Nav">
+    <div className="Nav ">
       <div className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-6">
@@ -46,17 +46,17 @@ export default function Navbar({ op1, op2, op3 }) {
           </div>
           <div className="hidden md:flex items-center gap-2">
             <div className="flex justify-center items-center ÑÑ">
-              <Link href="">
+              <Link href={Link1}>
                 <span className="text-white hover:text-gray-200 px-3 py-2 rounded-md text-base font-bold">
                   {op1}
                 </span>
               </Link>
-              <Link href="">
+              <Link href={Link2}>
                 <span className="text-white hover:text-gray-200 font-bold px-3 py-2 rounded-md text-base">
                   {op2}
                 </span>
               </Link>
-              <Link href="">
+              <Link href={Link3}>
                 <span className="text-white hover:text-gray-200 font-bold px-3 py-2 rounded-md text-base">
                   {op3}
                 </span>
@@ -64,7 +64,7 @@ export default function Navbar({ op1, op2, op3 }) {
             </div>
             <div className="avatar">
               <div className="w-14 rounded-full">
-                <Image src={avatar} alt="Logo" width={40} height={40} />
+                <Image src={avatar} alt="Logo" width={60} height={60} />
               </div>
             </div>
             <Dropdown label="">
@@ -92,7 +92,6 @@ export default function Navbar({ op1, op2, op3 }) {
                     Salir
                   </span>
                 </Link>
-                <i className="icon ion-android-exit mr-2"></i>
               </div>
             </Dropdown>
           </div>
@@ -111,17 +110,17 @@ export default function Navbar({ op1, op2, op3 }) {
         {(ref) => (
           <div ref={ref} className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              <Link href="">
+              <Link href={Link1}>
                 <span className="text-white hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">
                   {op1}
                 </span>
               </Link>
-              <Link href="">
+              <Link href={Link2}>
                 <span className="text-white hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">
                   {op2}
                 </span>
               </Link>
-              <Link href="">
+              <Link href={Link3}>
                 <span className="text-white hover:text-gray-200 block px-3 py-2 rounded-md text-base font-medium">
                   {op3}
                 </span>
