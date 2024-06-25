@@ -67,7 +67,8 @@ export default function Login() {
                       <div className="Opp">
                         <Link href="/Administrador/AdministradorHome">Administrativo</Link>
                         <Link href="/Guardia/guardiaHome">Vigilante</Link>
-                        <Link href="/Instructor">Instructor</Link>
+                        <Link href="/Instructor/InstructorHome">Instructor</Link>
+                        {/* <Link href="/Instructor">Instructor</Link> */}
                         <Link href="/Aprendiz">Aprendiz</Link>
                       </div>
                     </div>
