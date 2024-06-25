@@ -1,6 +1,6 @@
 const getCategoria = async () => {
   try {
-      const res = await fetch("http://127.0.0.1:8000/senauthenticator/usuario/", {
+      const res = await fetch("http://127.0.0.1:8000/senauthenticator/contactoEmergencia/", {
           cache: "no-store",
       });
 
