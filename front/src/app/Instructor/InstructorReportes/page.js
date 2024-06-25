@@ -102,6 +102,6 @@ export default function Instructor() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>
+  );
 }
