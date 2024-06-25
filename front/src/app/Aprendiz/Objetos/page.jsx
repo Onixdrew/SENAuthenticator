@@ -66,11 +66,7 @@ const Objetos_Aprendiz =() =>{
                     data-te-ripple-init
                     data-te-ripple-color="light"
                   >
-                    <img
-                      className="rounded-xl  sm:m-h-64  w-full "
-                      src="https://cdn.arstechnica.net/wp-content/uploads/2022/07/IMG_0281.jpeg"
-                      alt=""
-                    />
+                  
                     <a href="#!">
                       <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
                     </a>
