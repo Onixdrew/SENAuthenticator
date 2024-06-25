@@ -63,8 +63,8 @@ export default function Navbar({ op1, op2, op3, link1, link2, link3 }) {
               </Link>
             </div>
             <div className="avatar">
-              <div className="w-14 rounded-full">
-                <Image src={avatar} alt="Logo" width={40} height={40} />
+              <div >
+                <Image src={avatar} alt="Logo" className="rounded-full" width={50} height={50} />
               </div>
             </div>
             <Dropdown label="">
