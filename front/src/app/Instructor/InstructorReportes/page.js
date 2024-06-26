@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from 'react';
 import Navbar from '@/components/NavBarInstructor/NavBarInstructor';
+import { useEffect, useState } from 'react';
 
 const getProgramas = async () => {
   try {
@@ -140,9 +140,13 @@ export default function Instructor() {
                     </tr>
                   ))
                 ) : (
+                  datos.map((dato) => (
                   <tr>
-                    <td colSpan="3" className="text-center py-4">No hay datos disponibles</td>
+                    <td className="border px-4 py-2">{dato.id}</td>
+                    <td className="border px-4 py-2">{dato.nombre_programa}</td>
+                    <td className="border px-4 py-2">{dato.tipo_formacion_programa}</td>
                   </tr>
+                  ))
                 )}
               </tbody>
             </table>
