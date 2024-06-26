@@ -57,9 +57,9 @@ def usuario_controlador(request, pk=None):
     else:
         if request.method == 'GET':
             try:
-                usuarios = Usuario.object.all()
+                usuarios = Usuario.objects.all()
                 serializer = UsuarioSerializer(usuarios, many=True)
-                return Response(serializer.sata)
+                return Response(serializer.data)
             except Exception as e:
                 return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)                
 

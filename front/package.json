@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^2.0.4",
     "@headlessui/tailwindcss": "^0.2.1",
+    "@next/swc-win32-x64-msvc": "^14.2.4",
     "@remixicon/react": "^4.2.0",
     "@tremor/react": "^3.17.3",
     "feather-icons-react": "^0.7.0",
