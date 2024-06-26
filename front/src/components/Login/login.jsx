@@ -76,7 +76,7 @@ export default function Login() {
                 <Link className="underline" href="/OlvidarContraseña">
                   Olvide mi contraseña
                 </Link>
-                <Link className="underline" href="/Register">
+                <Link className="underline" href="/registroUser">
                   Registrarse
                 </Link>
               </div>
