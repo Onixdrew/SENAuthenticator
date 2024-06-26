@@ -1,23 +1,74 @@
-'use client';
+"use client";
 
-import React from 'react';
 import Navbar from '@/components/NavBarInstructor/NavBarInstructor';
+import { useEffect, useState } from 'react';
+
+const getProgramas = async () => {
+  try {
+    const res = await fetch(
+      "http://127.0.0.1:8000/senauthenticator/programa/",
+      {
+        cache: "no-store",
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error("Fallo la Busqueda de Posts");
+    }
+
+    return res.json();
+  } catch (error) {
+    console.log("Error al cargar posts: ", error);
+    return [];
+  }
+};
 
 export default function Instructor() {
+  const [searchPrograma, setSearchPrograma] = useState('');
+  const [searchFichas, setSearchFichas] = useState('');
+  const [searchDocumentos, setSearchDocumentos] = useState('');
+  const [searchTiempo, setSearchTiempo] = useState('');
+  const [datos, setDatos] = useState([]);
+  const [filteredDatos, setFilteredDatos] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await getProgramas();
+      setDatos(result);
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (searchPrograma || searchFichas || searchDocumentos || searchTiempo) {
+      const filtered = datos.filter(dato => 
+        (searchPrograma ? dato.nombre_programa.toLowerCase().includes(searchPrograma.toLowerCase()) : true) &&
+        (searchFichas ? dato.fichas?.toLowerCase().includes(searchFichas.toLowerCase()) : true) &&
+        (searchDocumentos ? dato.documentos?.toLowerCase().includes(searchDocumentos.toLowerCase()) : true) &&
+        (searchTiempo ? dato.tiempo?.toLowerCase().includes(searchTiempo.toLowerCase()) : true)
+      );
+
+      setFilteredDatos(filtered);
+    } else {
+      setFilteredDatos([]);
+    }
+  }, [searchPrograma, searchFichas, searchDocumentos, searchTiempo, datos]);
+
+  const handleProgramaChange = (event) => {
+    setSearchPrograma(event.target.value);
+  };
+
   const handleFichasChange = (event) => {
-    console.log('Fichas:', event.target.value);
+    setSearchFichas(event.target.value);
   };
 
   const handleDocumentosChange = (event) => {
-    console.log('Documentos:', event.target.value);
+    setSearchDocumentos(event.target.value);
   };
 
   const handleTiempoChange = (event) => {
-    console.log('Tiempo:', event.target.value);
-  };
-
-  const handleProgramaChange = (event) => {
-    console.log('Programa:', event.target.value);
+    setSearchTiempo(event.target.value);
   };
 
   const handleGraficasClick = () => {
@@ -75,33 +126,33 @@ export default function Instructor() {
               <thead className="bg-gray-200">
                 <tr>
                   <th className="w-1/6 py-2 border-b">Id</th>
-                  <th className="w-1/6 py-2 border-b">Aprendiz</th>
-                  <th className="w-1/6 py-2 border-b">Identificación</th>
-                  <th className="w-1/6 py-2 border-b">Llego</th>
-                  <th className="w-1/6 py-2 border-b">Hora</th>
+                  <th className="w-1/6 py-2 border-b">Nombre del Programa</th>
+                  <th className="w-1/6 py-2 border-b">Tipo de Formación</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className="even:bg-gray-100">
-                  <td className="border px-4 py-2">1</td>
-                  <td className="border px-4 py-2">Juan Pérez</td>
-                  <td className="border px-4 py-2">12345678</td>
-                  <td className="border px-4 py-2">No</td>
-                  <td className="border px-4 py-2">--------------</td>
-                </tr>
-                <tr className="even:bg-gray-100">
-                  <td className="border px-4 py-2">2</td>
-                  <td className="border px-4 py-2">Ana García</td>
-                  <td className="border px-4 py-2">87654321</td>
-                  <td className="border px-4 py-2">Sí</td>
-                  <td className="border px-4 py-2">08:30 AM</td>
-                </tr>
-                {/* Añadir más filas según sea necesario */}
+                {filteredDatos.length > 0 ? (
+                  filteredDatos.map((dato) => (
+                    <tr key={dato.id} className="even:bg-gray-100">
+                      <td className="border px-4 py-2">{dato.id}</td>
+                      <td className="border px-4 py-2">{dato.nombre_programa}</td>
+                      <td className="border px-4 py-2">{dato.tipo_formacion_programa}</td>
+                    </tr>
+                  ))
+                ) : (
+                  datos.map((dato) => (
+                  <tr>
+                    <td className="border px-4 py-2">{dato.id}</td>
+                    <td className="border px-4 py-2">{dato.nombre_programa}</td>
+                    <td className="border px-4 py-2">{dato.tipo_formacion_programa}</td>
+                  </tr>
+                  ))
+                )}
               </tbody>
             </table>
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>
+  );
 }
