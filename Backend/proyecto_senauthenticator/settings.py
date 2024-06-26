@@ -82,7 +82,8 @@ WSGI_APPLICATION = 'proyecto_senauthenticator.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'db_senauthenticator',        
+        'NAME': 'db_senauthenticator',     
+        'ENFORCE_SCHEMA': False,  # Permite flexibilidad en el esquema de MongoDB   
         'CLIENT': {
             'host': 'mongodb+srv://adso:2669742@cluster0.vhvbcg7.mongodb.net/db_senauthenticator?retryWrites=true&w=majority&appName=Cluster0'
         },        
