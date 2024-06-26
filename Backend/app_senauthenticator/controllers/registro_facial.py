@@ -4,7 +4,7 @@
 # se importan los modelos 
 from app_senauthenticator.models import RegistroFacial
 # se importan los serializers
-from app_senauthenticator.serializers import RegistroFacialSerializer
+from app_senauthenticator.serializers.registro_facial import RegistroFacialSerializer
 
 # extensiones para hacer las autenticaciones
 

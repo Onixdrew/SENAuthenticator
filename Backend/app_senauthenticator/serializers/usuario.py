@@ -4,3 +4,9 @@ from rest_framework import serializers
 
 # importacion de modelos
 from app_senauthenticator.models import Usuario
+
+
+class UsuarioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Usuario
+        fields = '__all__'

@@ -1,11 +1,10 @@
 
 # Api del proyecto, para enviar y recibir información de manera eficiente
 
-from rest_framework import generics
 # se importan los modelos 
 from app_senauthenticator.models import ContactoEmergencia
 # se importan los serializers
-from app_senauthenticator.serializers import ContactoEmergenciaSerializer
+from app_senauthenticator.serializers.contacto_emergencia import ContactoEmergenciaSerializer
 
 # extensiones para hacer las autenticaciones
 
