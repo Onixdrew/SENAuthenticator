@@ -4,7 +4,7 @@
 # se importan los modelos 
 from app_senauthenticator.models import Programa
 # se importan los serializers
-from app_senauthenticator.serializers import ProgramaSerializer
+from app_senauthenticator.serializers.programa import ProgramaSerializer
 
 # extensiones para hacer las autenticaciones
 
