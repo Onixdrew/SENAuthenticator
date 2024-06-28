@@ -1,3 +1,5 @@
+import Modal from "@/components/Modal/modal";
+
 const getData = async () => {
   try {
     const res = await fetch("https://rickandmortyapi.com/api/character", {
@@ -23,59 +25,117 @@ export default async function Cartas() {
   console.log(datafull);
   return (
     <>
-      <div>
-        <div>
-          <div className=" ">
-            <div className="">
-              <div className=" mx-auto  md:ml-[9vw] md:mt-[17vh] md:w-[70%] ">
-                <h2 className="md:ml-[20vw] md:mb-[5vh]  text-center text-green-700 text-2xl">
-                  Objetos activos
-                </h2>
+      <div
+        className="mx-auto xl:ml-24
+        md:mt-[17vh] md:w-[70%] sm:ml-8 md:ml-32 "
+      >
+        <button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Agregar</button>
 
-                <div className="flex flex-wrap gap-10  p-5">
-                  {datafull?.map((dato) => (
-                    <span
-                      key={dato.id}
-                      className="border bg-gray-700 rounded-xl hover:-translate-y-1 hover:scale-110 border-black space-x-5 flex flex-col sm:w-[45%] lg:w-[30%] text-white"
-                    >
-                      <div
-                        className=" flex relative overflow-hidden bg-cover bg-no-repeat"
-                        data-te-ripple-init
-                        data-te-ripple-color="light"
-                      >
-                        <img
-                          className="rounded-xl  sm:m-h-64  w-full hover:bg-slate-400  "
-                          src={dato.image}
-                          alt=""
-                        />
-                        <a href="#!">
-                          <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
-                        </a>
+        <h2 className="md:ml-[20vw] md:mb-[5vh]  text-center text-green-700 text-2xl">
+          Objetos activos
+        </h2>
 
-                        <a
-                          href="#"
-                          className="absolute hover:bg-white  rounded-lg bg-black hite md:ml-[80%] md:mt-3"
-                        >
-                          {/* <TiDelete
+        <div className="flex flex-wrap gap-10  p-5">
+          {datafull?.map((dato) => (
+            <span
+              key={dato.id}
+              className="border bg-gray-700 rounded-xl hover:-translate-y-1 hover:scale-110 border-black space-x-5 flex flex-col sm:w-[45%] lg:w-[30%] text-white"
+            >
+              <div
+                className=" flex relative overflow-hidden bg-cover bg-no-repeat"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+              >
+                <img
+                  className="rounded-xl  sm:m-h-64  w-full hover:bg-slate-400  "
+                  src={dato.image}
+                  alt=""
+                />
+                <a href="#!">
+                  <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                </a>
+
+                <a
+                  href="#"
+                  className="absolute hover:bg-white  rounded-lg bg-black hite md:ml-[80%] md:mt-3"
+                >
+                  {/* <TiDelete
                             o
                             className=" text-3xl  hover:text-black text-white"
                           /> */}
-                        </a>
-                      </div>
-                      <div className="font-semibold p-2 space-y-2">
-                        <p>Laptop DELL 2024 </p>
-                        <div className="text-green-400">Color:<p className="text-yellow-500">{dato.name}</p> </div>
-                        <div className="text-green-400">Serie:<p className="text-yellow-500">{dato.species}</p> </div>
-                        <div className="text-green-400">Color:<p className="text-yellow-500">{dato.gender}</p> </div>
-                      </div>
-                    </span>
-                  ))}
+                </a>
+              </div>
+              <div className="font-semibold p-2 space-y-2">
+                <p>Laptop DELL 2024 </p>
+                <div className="text-green-400">
+                  Color:<p className="text-yellow-500">{dato.name}</p>{" "}
+                </div>
+                <div className="text-green-400">
+                  Serie:<p className="text-yellow-500">{dato.species}</p>{" "}
+                </div>
+                <div className="text-green-400">
+                  Color:<p className="text-yellow-500">{dato.gender}</p>{" "}
                 </div>
               </div>
-            </div>
-          </div>
+            </span>
+          ))}
         </div>
       </div>
+      <div
+        className="mx-auto xl:ml-24
+        md:mt-[17vh] md:w-[70%] sm:ml-8 md:ml-32 "
+      >
+        <h2 className="md:ml-[20vw] bg-green-400 md:mb-[5vh]  text-center text-green-700 text-2xl">
+          Objetos Inactivos
+        </h2>
+
+        <div className="flex flex-wrap gap-10  p-5">
+          {datafull?.map((dato) => (
+            <span
+              key={dato.id}
+              className="border bg-gray-700 rounded-xl hover:-translate-y-1 hover:scale-110 border-black space-x-5 flex flex-col sm:w-[45%] lg:w-[30%] text-white"
+            >
+              <div
+                className=" flex relative overflow-hidden bg-cover bg-no-repeat"
+                data-te-ripple-init
+                data-te-ripple-color="light"
+              >
+                <img
+                  className="rounded-xl  sm:m-h-64  w-full hover:bg-slate-400  "
+                  src={dato.image}
+                  alt=""
+                />
+                <a href="#!">
+                  <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
+                </a>
+
+                <a
+                  href="#"
+                  className="absolute hover:bg-white  rounded-lg bg-black hite md:ml-[80%] md:mt-3"
+                >
+                  {/* <TiDelete
+                            o
+                            className=" text-3xl  hover:text-black text-white"
+                          /> */}
+                </a>
+              </div>
+              <div className="font-semibold p-2 space-y-2">
+                <p>Laptop DELL 2024 </p>
+                <div className="text-green-400">
+                  Color:<p className="text-yellow-500">{dato.name}</p>{" "}
+                </div>
+                <div className="text-green-400">
+                  Serie:<p className="text-yellow-500">{dato.species}</p>{" "}
+                </div>
+                <div className="text-green-400">
+                  Color:<p className="text-yellow-500">{dato.gender}</p>{" "}
+                </div>
+              </div>
+            </span>
+          ))}
+        </div>
+      </div>
+       
     </>
   );
 }
