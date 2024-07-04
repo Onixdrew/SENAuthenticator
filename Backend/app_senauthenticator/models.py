@@ -1,9 +1,10 @@
 from djongo import models
+from django.contrib.auth.models import AbstractUser
 
 
 tipo_documento_usuario=[
-    ('Tarjeta de Identidad','Tarjeta de Identidad'),
     ('Cedula de ciudadania','Cedula de ciudadania'),
+    ('Tarjeta de Identidad','Tarjeta de Identidad'),
     ('Cedula de extranjeria','Cedula de extranjeria'),
 ]
 
@@ -13,10 +14,11 @@ tipo_documento_contacto_emergencia=[
 ]
 
 tipo_rol=[
-    ('Administrador','Administrador'),
-    ('Guardia','Guardia'),
-    ('Instructor','Instructor'),
     ('Aprendiz','Aprendiz'),
+    ('Instructor','Instructor'),
+    ('Administrador','Administrador'),
+    ('Funcionario','Funcionario'),
+    ('Guardia de seguridad','Guardia de seguridad'),
 ]
 
 jornada_ficha=[
@@ -26,8 +28,8 @@ jornada_ficha=[
 ]
 
 tipo_formacion=[
-    ('Tecnico','Tecnico'),
     ('Tecnologo','Tecnologo'),
+    ('Tecnico','Tecnico'),
 ]
 
 genero = [
@@ -55,20 +57,22 @@ class Ficha(models.Model):
         return self.numero_ficha
     
 
-class Usuario(models.Model):
-    nombre_usuario=models.CharField(max_length=50, db_column='nombre_usuario')
-    apellidos_usuario=models.CharField(max_length=50, db_column='apellidos_usuario')
-    genero_usuario=models.CharField(max_length=20, choices=genero, db_column='genero_usuario')  
-    correo_institucional_usuario=models.CharField(max_length=50, db_column='correo_institucional_usuario') 
-    correo_personal_usuario=models.CharField(max_length=50, db_column='correo_personal_usuario') 
+class Usuario(AbstractUser):
     tipo_documento_usuario=models.CharField(max_length=50, choices=tipo_documento_usuario, default='', db_column='tipo_documento_usuario')
     numero_documento_usuario=models.CharField(max_length=20, unique=True, default='', db_column='numero_documento_usuario')
-    contrasenia_usuario=models.CharField(max_length=30, db_column='contrasenia_usuario')
-    rol_usuario = models.CharField(max_length=13, choices=tipo_rol, db_column='rol_usuario') 
+    genero_usuario=models.CharField(max_length=9, choices=genero, db_column='genero_usuario')  
+    rol_usuario = models.CharField(max_length=20, choices=tipo_rol, db_column='rol_usuario') 
     ficha_usuario=models.ForeignKey(Ficha,on_delete=models.PROTECT, null=True, db_column='ficha_usuario')
+    # nombre_usuario=models.CharField(max_length=50, db_column='nombre_usuario')
+    # apellidos_usuario=models.CharField(max_length=50, db_column='apellidos_usuario')
+    # correo_usuario=models.CharField(max_length=50, db_column='correo_personal_usuario') 
+    # contrasenia_usuario=models.CharField(max_length=30, db_column='contrasenia_usuario')
+
+    USERNAME_FIELD = 'numero_documento_usuario' # se cambia el username por el numero_documento_usuario para poder autenticarse
+    REQUIRED_FIELDS = ['username', 'email'] # campos requeridos al momento de crear un super usuario
 
     def __str__(self) -> str:
-        return f'{self.nombre_usuario} {self.apellidos_usuario}'
+        return self.numero_documento_usuario
     
 
 class RegistroFacial(models.Model):
@@ -91,10 +95,10 @@ class Objeto(models.Model):
 class ContactoEmergencia(models.Model):
     nombre_cntEmerg=models.CharField(max_length=50, db_column='nombre_cntEmerg')
     apellido_cntEmerg=models.CharField(max_length=50, db_column='apellido_cntEmerg')
-    genero_cntEmerg=models.CharField(max_length=20, choices=genero, db_column='genero_cntEmerg')  
-    celular_cntEmerg=models.CharField(max_length=12, db_column='celular_cntEmerg')
     tipo_documento_cntEmerg=models.CharField(max_length=50, choices=tipo_documento_contacto_emergencia, default='', db_column='tipo_documento_cntEmerg')
     numero_documento_cntEmerg=models.CharField(max_length=20, unique=True, default='', db_column='numero_documento_cntEmerg')
+    celular_cntEmerg=models.CharField(max_length=12, db_column='celular_cntEmerg')
+    genero_cntEmerg=models.CharField(max_length=20, choices=genero, db_column='genero_cntEmerg')  
     parentezco_cntEmerg=models.CharField(max_length=30, db_column='parentezco_cntEmerg')
     usuario_cntEmerg=models.ForeignKey(Usuario, on_delete=models.PROTECT, null=True, db_column='usuario_cntEmerg')
 

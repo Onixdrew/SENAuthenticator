@@ -1,19 +1,15 @@
 
 # API de autenticación con tokens
 
-# se importan los modelos 
-from .models import Usuario
-# se importan los serializers
+# Se importa el modelo
+from app_senauthenticator.models import Usuario
+# Se importa el serializador
 from app_senauthenticator.serializers.usuario import UsuarioSerializer
 
 # extensiones para hacer las autenticaciones
-
 from rest_framework.decorators import api_view, authentication_classes, permission_classes
-# En esta importamos todos los controladores de serializer
-from .serializers import *
-
 from rest_framework.response import Response # sirve para devolver respuestas HTTP
-# Aquí importo como una función para crear los tokens
+# Función para crear los tokens
 from rest_framework.authtoken.models import Token
 from rest_framework import status # Sirve para usar códigos de estado HTTP
 
@@ -22,7 +18,7 @@ from rest_framework.authentication import TokenAuthentication
 
 
 @api_view(['POST'])
-def login (request):
+def inicio_sesion(request):
     # tipo_documento = request.data.get('tipo_documento_usuario')
     numero_documento = request.data.get('numero_documento_usuario')
     contrasenia_usuario = request.data.get('contrasenia_usuario')
@@ -45,7 +41,7 @@ logger = logging.getLogger(__name__)
 
 
 @api_view(['POST'])
-def register(request):
+def registro(request):
     try:
         logger.info("Iniciando el proceso de registro.")
         serializer = UsuarioSerializer(data=request.data)
@@ -70,7 +66,7 @@ def register(request):
 @api_view(['POST'])
 @authentication_classes([TokenAuthentication])
 @permission_classes([IsAuthenticated])
-def profile (request):
+def perfil(request):
     # print(request.user)
     print (request.user.id)
     serializer =UsuarioSerializer(instance=request.user)
