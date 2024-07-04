@@ -5,7 +5,7 @@ export default function Page() {
   return (
     <>
       <header>
-      <Navbar op1="Home" op2='Reportes' op3='Solicitudes' />
+      <Navbar op1="Home" op2='Reportes' op3='Solicitudes' link1='/Administrador/AdministradorHome' link2='/Administrador/AdministradorReportes' link3='/Administrador/AdministradorSolicitudes'  />
       </header>
       <div className="bg-gray-100  flex items-center justify-center">
         <div className="bg-white shadow-lg rounded-lg p-6 mt-8">

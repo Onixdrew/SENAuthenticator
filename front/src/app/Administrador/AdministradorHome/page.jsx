@@ -25,7 +25,7 @@ export default function Page() {
   return (
     <div>
       <header>
-        <Navbar op1="Home" op2='Reportes' op3='Solicitudes' />
+        <Navbar op1="Home" op2='Reportes' op3='Solicitudes' link1='/Administrador/AdministradorHome' link2='/Administrador/AdministradorReportes' link3='/Administrador/AdministradorSolicitudes'/>
       </header>
       <h1>Hola</h1>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem a rerum ipsa cupiditate numquam quaerat quod aliquam nulla, voluptatibus sequi ut minima voluptates ea. Rem iusto perferendis esse expedita ipsum?</p>

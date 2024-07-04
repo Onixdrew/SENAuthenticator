@@ -381,7 +381,9 @@ import FormObjetos from "../components/FormObjetos";
 import imgFormObjetos from "../../../../public/assets/FondoLogin.jpg";
 import Footer from "../components/Footer";
 import Cartas from "../components/cardObjetos";
-import MyModal from "@/components/Modal/modal";
+import BtnAgregar from "../components/modalAgregar";
+
+
 // import { PiProhibitBold } from "react-icons/pi";
 // import { TiDelete } from "react-icons/ti";
 
@@ -399,9 +401,8 @@ const Objetos_Aprendiz = () => {
       </div>
 
       <div className="absolute mt-32">
-       
+       <div className="md:ml-24"><BtnAgregar></BtnAgregar></div>
        <div className="mx-auto"> <Cartas></Cartas></div>
-        <MyModal></MyModal>
         <Footer></Footer>
       </div>
     </>

@@ -1,5 +1,4 @@
-import Modal from "@/components/Modal/modal";
-
+"use server";
 const getData = async () => {
   try {
     const res = await fetch("https://rickandmortyapi.com/api/character", {
@@ -22,14 +21,14 @@ export default async function Cartas() {
   const data = await getData();
   //console.log(data);
   const datafull = data.results;
-  console.log(datafull);
+  // console.log(datafull);
   return (
     <>
       <div
         className="mx-auto xl:ml-24
         md:mt-[17vh] md:w-[70%] sm:ml-8 md:ml-32 "
       >
-        <button type="button" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Agregar</button>
+        
 
         <h2 className="md:ml-[20vw] md:mb-[5vh]  text-center text-green-700 text-2xl">
           Objetos activos
@@ -51,7 +50,7 @@ export default async function Cartas() {
                   src={dato.image}
                   alt=""
                 />
-                <a href="#!">
+                <a href="/Aprendiz/modal">
                   <div className="absolute bottom-0 left-0 right-0 top-0 h-full w-full overflow-hidden bg-[hsla(0,0%,98%,0.15)] bg-fixed opacity-0 transition duration-300 ease-in-out hover:opacity-100"></div>
                 </a>
 
@@ -77,6 +76,7 @@ export default async function Cartas() {
                   Color:<p className="text-yellow-500">{dato.gender}</p>{" "}
                 </div>
               </div>
+              <input type="hidden" name="" id="idObjeto" value={dato.id} />
             </span>
           ))}
         </div>
@@ -85,7 +85,7 @@ export default async function Cartas() {
         className="mx-auto xl:ml-24
         md:mt-[17vh] md:w-[70%] sm:ml-8 md:ml-32 "
       >
-        <h2 className="md:ml-[20vw] bg-green-400 md:mb-[5vh]  text-center text-green-700 text-2xl">
+        <h2 className="md:ml-[20vw] bg-green-400 md:mb-[5vh]  text-center  text-green-700 text-2xl">
           Objetos Inactivos
         </h2>
 
@@ -135,7 +135,6 @@ export default async function Cartas() {
           ))}
         </div>
       </div>
-       
     </>
   );
 }

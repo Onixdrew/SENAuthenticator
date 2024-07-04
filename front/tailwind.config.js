@@ -154,6 +154,7 @@ module.exports = {
     require('@headlessui/tailwindcss'),
     require('@tailwindcss/forms'),
     require('daisyui'),
+   
   ],
   daisyui: {
     themes: false,

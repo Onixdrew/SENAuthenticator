@@ -83,7 +83,7 @@ export default function Page() {
   return (
     <div>
       <header>
-        <Navbar op1="Home" op2="Reportes" op3="Solicitudes" />
+        <Navbar op1="Home" op2="Reportes" op3="Solicitudes" link1='/Administrador/AdministradorHome' link2='/Administrador/AdministradorReportes' link3='/Administrador/AdministradorSolicitudes' />
       </header>
       <div className="container mx-auto py-8">
         <div className="flex justify-center mb-4">

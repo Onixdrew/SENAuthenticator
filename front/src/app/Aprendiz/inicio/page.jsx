@@ -8,19 +8,19 @@ import Navbar from "../../../components/Navbar/navbar";
 const Inicio_Aprendiz = () => {
   return (
     <>
-      <div>
-        <div className="fixed z-50 w-full">
-          <Navbar
-            op1="Inicio"
-            op2="Mis Objetos"
-            link1="/Aprendiz/inicio"
-            link2="/Aprendiz/Objetos"
-            link3=''
-          />
-        </div>
+      <div className="fixed z-50 w-full">
+        <Navbar
+          op1="Inicio"
+          op2="Mis Objetos"
+          link1="/Aprendiz/inicio"
+          link2="/Aprendiz/Objetos"
+          link3=""
+        />
+      </div>
 
+      <div className="absolute sm:mt-32 ">
         <div className="flex flex-col  lg:flex-row justify-center items-start mt-[30vh] lg:mt-[20vh] sm:mt-[17vh]  min-mt-10 md:mt-[20vh] flex-wrap px-4 space-y-5 lg:space-y-0 lg:space-x-10">
-          <div className="flex-shrink-0 mt-32 ">
+          <div className="flex-shrink-0  ">
             <CarnetAprendiz />
           </div>
 
@@ -46,7 +46,7 @@ const Inicio_Aprendiz = () => {
           </div>
         </div>
 
-        <div className="w-full lg:w-[40vw] space-y-10 text-center mx-auto mt-8 px-4 lg:px-0">
+        <div className="w-full  lg:w-[40vw] space-y-10 text-center mx-auto mt-8 px-4 lg:px-0">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
             rem ducimus vero numquam? Quibusdam dolore odit rem. Explicabo
@@ -66,7 +66,6 @@ const Inicio_Aprendiz = () => {
             ut ratione perspiciatis.
           </p>
         </div>
-
         <Footer />
       </div>
     </>
