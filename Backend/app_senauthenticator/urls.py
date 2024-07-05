@@ -1,6 +1,5 @@
-from django.urls import path, re_path
+from django.urls import path
 from app_senauthenticator.controllers import programa, ficha, usuario, registro_facial, objeto, contacto_emergencia, ingreso
-from app_senauthenticator import views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -19,9 +18,8 @@ urlpatterns = [
     path('contactoEmergencia/<int:pk>/', contacto_emergencia.contacto_emergencia_controlador),
     path('ingreso/', ingreso.ingreso_controlador),
     path('ingreso/<int:pk>/', ingreso.ingreso_controlador),
-    re_path('login', views.login),
-    re_path('register', views.register),
-    re_path('profile', views.profile)
+    path('inicioSesion/', usuario.inicio_sesion),
+    path('perfil/', usuario.perfil)
 ]
 
 if settings.DEBUG:
@@ -29,3 +27,4 @@ if settings.DEBUG:
         settings.MEDIA_URL,
         document_root=settings.MEDIA_ROOT
     )
+    

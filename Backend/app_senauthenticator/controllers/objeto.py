@@ -1,24 +1,8 @@
-
-# Api del proyecto, para enviar y recibir información de manera eficiente
-
-# se importan los modelos 
 from app_senauthenticator.models import Objeto
-# se importan los serializers
 from app_senauthenticator.serializers.objeto import ObjetoSerializer
-
-# extensiones para hacer las autenticaciones
-
-from rest_framework.decorators import api_view, authentication_classes, permission_classes
-# En esta importamos todos los controladores de serializer
-
-from rest_framework.response import Response # sirve para devolver respuestas HTTP
-# Aquí importo como una función para crear los tokens
-from rest_framework.authtoken.models import Token
-from rest_framework import status # Sirve para usar códigos de estado HTTP
-
-from django.shortcuts import get_object_or_404
-from rest_framework. permissions import IsAuthenticated
-from rest_framework.authentication import TokenAuthentication
+from rest_framework.decorators import api_view
+from rest_framework.response import Response 
+from rest_framework import status 
 
 
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
