@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+
 import Logo from "../../../public/img/Logo Reconocimiento Facial - Blanco.png";
 
-const Navbar = () => {
+const Navbar = ({item1,item2, item3, ruta1, ruta2, ruta3,color,color2,color3}) => {
   // Estado para controlar la visibilidad del menú móvil
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -28,16 +30,16 @@ const Navbar = () => {
     <>
       <div className="flex flex-col">
         <nav className="flex items-center justify-between bg-green-500 p-4">
-          <div className="flex items-center">
+          <div className="flex items-center xl:ml-16">
             <img src={Logo} alt="Logo" className="w-12 text-black" />
-            <a className="text-xl ml-2">SENAuthenticator</a>
+            <Link className="text-xl ml-2 font-serif">SENAuthenticator</Link>
           </div>
 
           {/* Menu Items for larger screens */}
-          <div className="hidden md:flex space-x-4">
-            <a href="#" className="text-white">Inicio</a>
-            <a href="#" className="text-white">Productos</a>
-            <a href="#" className="text-white">Otros</a>
+          <div className="hidden md:flex space-x-14">
+            <Link href={ruta1} className={`text-2xl font-serif ${color == 'activo' ? 'text-red-700' : 'text-white'} hover:text-blue-800`} >{item1}</Link>
+            <Link href={ruta2} className={`text-2xl font-serif ${color2 == 'activo' ? 'text-red-700' : 'text-white'} hover:text-blue-800`}>{item2}</Link>
+            <Link href={ruta3} className={`text-2xl font-serif ${color3 == 'activo' ? 'text-red-700' : 'text-white'} hover:text-blue-800`}>{item3}</Link>
           </div>
 
           {/* Menu Button (Hamburger) for smaller screens */}
@@ -55,9 +57,9 @@ const Navbar = () => {
               <div
                 tabIndex={0}
                 role="button"
-                className="btn btn-ghost btn-circle avatar"
+                className="btn btn-ghost btn-circle  avatar"
               >
-                <div className="w-18 rounded-full">
+                <div className="w-16 rounded-full">
                   <img
                     alt="Profile"
                     src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
@@ -69,16 +71,16 @@ const Navbar = () => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
               >
                 <li>
-                  <a className="justify-between">
+                  <Link className="justify-between">
                     Profile
                     <span className="badge">New</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a>Settings</a>
+                  <Link>Settings</Link>
                 </li>
                 <li>
-                  <a>Logout</a>
+                  <Link>Logout</Link>
                 </li>
               </ul>
             </div>
@@ -88,11 +90,14 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <div
           ref={menuRef}
-          className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-green-500 p-4`}
+          className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-green-500 `}
         >
-          <a href="#" className="block text-white py-2">Inicio</a>
-          <a href="#" className="block text-white py-2">Productos</a>
-          <a href="#" className="block text-white py-2">Otros</a>
+          <Link href={ruta1} className="block text-white py-2 p-4 hover:bg-green-600">{item1}</Link>
+          <Link href={ruta2} className="block text-white py-2 p-4 hover:bg-green-600">{item2}</Link>
+          <Link href={ruta3} className="block text-white py-2 p-4 hover:bg-green-600">{item3}</Link>
+          <Link href="#" className="block bg-green-600 text-white py-2 px-4 hover:bg-green-700">Perfil</Link>
+          <Link href="#" className="block bg-green-600 text-white py-2 px-4 hover:bg-green-700">Settings</Link>
+          <Link href="#" className="block bg-green-600 text-white py-2 px-4 hover:bg-green-700">Salir</Link>
         </div>
       </div>
     </>

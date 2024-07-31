@@ -19,6 +19,7 @@ import { BrowserRouter, useRoutes } from "react-router-dom";
 
 /// Rol Instructor
 import InicioIntructor from './pages/Instructor/inicioIntructor';
+import Login from './pages/components/Login';
 
 
 
@@ -29,7 +30,7 @@ function App() {
       
       // Rutas Principales
 
-      // { path: "/", element: <Home/> },
+      { path: "/", element: <Login/> },
       // { path: "/", element: <Login/> },
       // { path: "/Register", element: <Register/> },
 

@@ -5,7 +5,7 @@ const InicioIntructor = () => {
   return (
     <>
     <div>
-        <Navbar></Navbar>
+        <Navbar item1="inicio" item2="Productos" item3='Otros' ruta1='' ruta2='' ruta3='' color='activo' />
     </div>
     </>
   )
