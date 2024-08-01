@@ -137,9 +137,9 @@ const Login = () => {
           </p>
           <p className="inline-block text-white hover:text-blue-400 text-lg">Leer más...</p>
         </div>
-        <div className="w-full lg:w-1/3 bg-purple-700 p-6 lg:p-10 rounded-lg">
+        <div className="w-full lg:w-1/3 bg-purple-700 p-6 lg:p-10 rounded-3xl">
           <h2 className="text-white text-3xl sm:text-4xl lg:text-3xl font-bold mb-8 text-center">Iniciar sesión</h2>
-          <form>
+          <form className=''>
             <div className="mb-6">
               <label className="block text-purple-300 mb-2 text-lg" htmlFor="selection">Tipo de identificación</label>
               <div className="relative">

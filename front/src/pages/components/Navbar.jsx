@@ -28,8 +28,8 @@ const Navbar = ({item1,item2, item3, ruta1, ruta2, ruta3,color,color2,color3}) =
 
   return (
     <>
-      <div className="flex flex-col">
-        <nav className="flex items-center justify-between bg-green-500 p-4">
+      <div className="flex  fixed w-full z-50 flex-col ">
+        <nav className="flex  items-center justify-between border-b  bg-green-500 p-4">
           <div className="flex items-center xl:ml-16">
             <img src={Logo} alt="Logo" className="w-12 text-black" />
             <Link className="text-xl ml-2 font-serif">SENAuthenticator</Link>
@@ -72,15 +72,15 @@ const Navbar = ({item1,item2, item3, ruta1, ruta2, ruta3,color,color2,color3}) =
               >
                 <li>
                   <Link className="justify-between">
-                    Profile
-                    <span className="badge">New</span>
+                    Perfil
+              
                   </Link>
                 </li>
                 <li>
-                  <Link>Settings</Link>
+                  <Link>Configuraciòn</Link>
                 </li>
                 <li>
-                  <Link>Logout</Link>
+                  <Link>Salir</Link>
                 </li>
               </ul>
             </div>
@@ -96,7 +96,7 @@ const Navbar = ({item1,item2, item3, ruta1, ruta2, ruta3,color,color2,color3}) =
           <Link href={ruta2} className="block text-white py-2 p-4 hover:bg-green-600">{item2}</Link>
           <Link href={ruta3} className="block text-white py-2 p-4 hover:bg-green-600">{item3}</Link>
           <Link href="#" className="block bg-green-600 text-white py-2 px-4 hover:bg-green-700">Perfil</Link>
-          <Link href="#" className="block bg-green-600 text-white py-2 px-4 hover:bg-green-700">Settings</Link>
+          <Link href="#" className="block bg-green-600 text-white py-2 px-4 hover:bg-green-700">Configuraciòn</Link>
           <Link href="#" className="block bg-green-600 text-white py-2 px-4 hover:bg-green-700">Salir</Link>
         </div>
       </div>

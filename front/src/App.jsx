@@ -2,14 +2,12 @@ import './App.css'
 import { BrowserRouter, useRoutes } from "react-router-dom";
 
 
-// Navs
+
 
 
 
 /// Paginas Principales
-
-// import Home from './pages/Home';
-// import Login from './pages/Login';
+import Login from './pages/components/Login';
 // import Register from './pages/Register';
 
 /// Rol Vigilante
@@ -19,7 +17,7 @@ import { BrowserRouter, useRoutes } from "react-router-dom";
 
 /// Rol Instructor
 import InicioIntructor from './pages/Instructor/inicioIntructor';
-import Login from './pages/components/Login';
+
 
 
 
@@ -39,7 +37,7 @@ function App() {
       // Rutas Administrativo
 
       // Rutas Instructor
-      {path: "/inicioAprendiz", element: <InicioIntructor />},
+      {path: "/inicioInstructor", element: <InicioIntructor />},
 
     ]);
     return routes;
