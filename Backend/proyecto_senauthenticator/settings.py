@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    'rest_framework.authtoken',
     'coreapi', # módulo para documentar el código    
     'app_senauthenticator', 
 ]
@@ -83,7 +84,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'db_senauthenticator',     
-        'ENFORCE_SCHEMA': False,  # Permite flexibilidad en el esquema de MongoDB   
         'CLIENT': {
             'host': 'mongodb+srv://adso:2669742@cluster0.vhvbcg7.mongodb.net/db_senauthenticator?retryWrites=true&w=majority&appName=Cluster0'
         },        
@@ -133,6 +133,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+
+# usuario del app
+AUTH_USER_MODEL = 'app_senauthenticator.Usuario'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
