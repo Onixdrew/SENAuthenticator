@@ -18,7 +18,7 @@ const InicioIntructor = () => {
           />
         </div>
 
-        <div className="absolute container">
+        {/* <div className="absolute container">
           <table class="mt-48 mx-auto table-auto w-full max-w-6xl">
             <thead class="bg-gray-800 text-gray-300">
               <tr>
@@ -65,7 +65,7 @@ const InicioIntructor = () => {
               </tr>
             </tbody>
           </table>
-        </div>
+        </div> */}
       </div>
       {/* <Footer/> */}
     </>
