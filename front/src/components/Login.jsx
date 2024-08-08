@@ -101,12 +101,40 @@
 
 // ////////////////////////// Login2
 
-import React from 'react';
+import {useState} from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import Logo from "../../../public/img/Logo Reconocimiento Facial - Blanco.png";
-import escudo from "../../../public/img/logo-sena-naranja-png-2022.png";
+import Logo from "../../public/img/Logo Reconocimiento Facial - Blanco.png";
+import escudo from "../../public/img/logo-sena-naranja-png-2022.png";
+import { useAuth } from '../auth/authProvider';
+import { Navigate } from 'react-router-dom';
 
 const Login = () => {
+
+  const [tipoId, setTipoId]=useState("")
+  const [numId, setNumId]=useState("")
+  const [contraseña, setContraseña]=useState("")
+  
+  const Autenticador=useAuth()
+
+  if (Autenticador.isAuthenticated) {
+    return <Navigate to="/inicioInstructor" />
+  }
+
+  const enviarForm= async (e)=>{
+    e.preventDefault();
+    const apiUrl = process.env.REACT_APP_API_URL;
+    try {
+      const response= await fetch(`${apiUrl}/`,{
+        method:'GET',
+        
+      })
+      
+    } catch (error) {
+      
+    }
+  }
+
+
   return (
     <div
       className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8"
@@ -139,13 +167,16 @@ const Login = () => {
         </div>
         <div className="w-full lg:w-1/3 bg-purple-700 p-6 lg:p-10 rounded-3xl">
           <h2 className="text-white text-3xl sm:text-4xl lg:text-3xl font-bold mb-8 text-center">Iniciar sesión</h2>
-          <form className=''>
+          <form onSubmit={enviarForm}>
             <div className="mb-6">
               <label className="block text-purple-300 mb-2 text-lg" htmlFor="selection">Tipo de identificación</label>
               <div className="relative">
                 <select
                   className="w-full p-3 rounded bg-purple-600 text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
                   id="selection"
+                  value={tipoId}
+                  onChange={ (e)=>setTipoId(e.target.value)}
+
                 >
                   <option value="">Seleccionar...</option>
                   <option value="1">Cédula</option>
@@ -165,6 +196,9 @@ const Login = () => {
                   id="username"
                   type="text"
                   placeholder="Identificación"
+                  value={numId}
+                  onChange={ (e)=>setNumId(e.target.value)}
+
                 />
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <i className="fas fa-address-book text-white"></i>
@@ -179,6 +213,8 @@ const Login = () => {
                   id="password"
                   type="password"
                   placeholder="Contraseña"
+                  value={contraseña}
+                  onChange={ (e)=>setContraseña(e.target.value)}
                 />
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <i className="fas fa-lock text-white"></i>
