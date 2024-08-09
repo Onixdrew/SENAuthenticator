@@ -1,112 +1,73 @@
-// import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-// import "../components/Static/Style/login.css";
 
-
-// // import Modal from "../Modal/modal";
-
-// import Logo from "../../../public/img/Logo Reconocimiento Facial - Blanco.png";
-// import escudo from "../../../public/img/logo-sena-naranja-png-2022.png";
-// import encabezado from "../../../public/img/logoSofiaLogin.png"
-
-// export default function Login() {
-//   const [mostrar, setMostrar] = useState(false);
-
-//   return (
-//     <div>
-//         <div className="bb ">
-//           <div className="Contenedor">
-//             <div className="Logo ">
-//               <img src={Logo} alt="Logo"  width={150} height={150} />
-//             </div>
-
-//             <div className="Login ">
-//               <div className="Loogin">
-//                 <form action="">
-//                   <div className="formulario">
-//                     <div className="flex flex-col justify-center gap-4 items-center">
-//                     <img src={encabezado} alt="Logo" width={120} height={120} />
-//                     <span className="font-bold text-lg">¡Bienvenidos!</span>
-//                     </div>
-
-//                     <div className="TD">
-//                       <ion-icon name="people-circle-outline"></ion-icon>
-//                       <select name="" id="">
-//                         <option hidden selected>
-//                           Tipo de documento
-//                         </option>
-//                         <option value="CC">CC</option>
-//                         <option value="TI">TI</option>
-//                         <option value="PPT">PPT</option>
-//                         <option value="CE">CE</option>
-//                       </select>
-//                     </div>
-                    
-//                     <div className="IP ">
-//                       <ion-icon name="keypad-outline"></ion-icon>
-//                       <input
-//                         type="text"
-//                         placeholder="Numero de documento"
-//                         name=""
-//                         id=""
-//                       />
-//                     </div>
-//                     <div className="IP">
-//                       <ion-icon name="key-outline"></ion-icon>
-//                       <input
-//                         type="password"
-//                         placeholder="Contraseña"
-//                         name=""
-//                         id=""
-//                       />
-//                     </div>
-//                   </div>
-//                 </form>
-//                 <div>
-//                   <button className="BB" onClick={() => setMostrar(true)}>
-//                     Ingresar
-//                   </button>
-//                   {/* <Modal isOpen={mostrar} onClose={() => setMostrar(false)}>
-//                     <div className="Oopciones">
-//                       <h3>Rol</h3>
-//                       <div className="Opp">
-//                         <Link href="/Administrativo">Administrativo</Link>
-//                         <Link href="/guardia/guardiaInicio">Vigilante</Link>
-//                         <Link href="/Instructor">Instructor</Link>
-//                         <Link href="/Aprendiz">Aprendiz</Link>
-//                       </div>
-//                     </div>
-//                   </Modal> */}
-//                 </div>
-//                 <Link className="underline" href="/OlvidarContraseña">
-//                   Olvide mi contraseña
-//                 </Link>
-//                 <Link className="underline" href="/Register">
-//                   Registrarse
-//                 </Link>
-//               </div>
-//             </div>
-
-//             <div className="Escudo">
-//               <img src={escudo} alt="Logo" width={150} height={150} />
-//             </div>
-//           </div>
-//         </div>
-//     </div>
-//   );
-// }
-
-
-
-
-// ////////////////////////// Login2
-
-import React from 'react';
+import {useState} from 'react';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import Logo from "../../../public/img/Logo Reconocimiento Facial - Blanco.png";
-import escudo from "../../../public/img/logo-sena-naranja-png-2022.png";
+import Logo from "../../public/img/Logo Reconocimiento Facial - Blanco.png";
+import escudo from "../../public/img/logo-sena-naranja-png-2022.png";
+import { useAuth } from '../auth/authProvider';
+import { Navigate, useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
+
+  const [tipoId, setTipoId]=useState("")
+  const [numId, setNumId]=useState("")
+  const [contraseña, setContraseña]=useState("")
+  
+  // hooks
+  const Autenticador = useAuth();
+  const navegar=useNavigate()
+
+  // verifica si el usuario ya esta autenticado, y si lo esta
+  // no sele permite salir de la ruta, al login porque debe de caducar la autenticacion
+  // if (Autenticador.isAuthenticated) {
+  //   return <Navigate to="/inicioInstructor" />
+  // }
+
+  const enviarForm= async (e)=>{
+    e.preventDefault();
+  
+    try {
+      const response = await fetch("http://127.0.0.1:8000/senauthenticator/inicioSesion/", {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "tipo_documento_usuario": tipoId,
+          "numero_documento_usuario": numId,
+          "password": contraseña,
+        })
+      });
+    
+      if (response.ok) {
+        const data = await response.json(); // Convierte la respuesta en JSON
+        console.log("El usuario sí existe en la bd");
+        
+        // redirigir a la página según su rol
+        switch (data.user.rol_usuario) {
+          case "Instructor":
+            navegar("/inicioInstructor");
+            break;
+          case "Aprendiz":
+            navegar("/Register");
+            break;
+          // case "Administrador":
+          //   navegar("/");
+          //   break;
+          default:
+            console.log("Rol no reconocido");
+            break;
+        }
+      } else {
+        console.log("El usuario No existe en bd");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    
+  }
+
+
   return (
     <div
       className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8"
@@ -139,18 +100,21 @@ const Login = () => {
         </div>
         <div className="w-full lg:w-1/3 bg-purple-700 p-6 lg:p-10 rounded-3xl">
           <h2 className="text-white text-3xl sm:text-4xl lg:text-3xl font-bold mb-8 text-center">Iniciar sesión</h2>
-          <form className=''>
+          <form onSubmit={enviarForm}>
             <div className="mb-6">
               <label className="block text-purple-300 mb-2 text-lg" htmlFor="selection">Tipo de identificación</label>
               <div className="relative">
                 <select
                   className="w-full p-3 rounded bg-purple-600 text-white focus:outline-none focus:ring-2 focus:ring-pink-500"
                   id="selection"
+                  value={tipoId}
+                  onChange={ (e)=>setTipoId(e.target.value)}
+
                 >
                   <option value="">Seleccionar...</option>
-                  <option value="1">Cédula</option>
-                  <option value="2">Tarjeta de identidad</option>
-                  <option value="3">Pasaporte</option>
+                  <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
+                  <option value="Cedula de ciudadania">Cedula de ciudadania</option>
+                  <option value="Cedula de extranjeria">Cedula de extranjeria</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <i className="fas fa-chevron-down text-white"></i>
@@ -165,6 +129,9 @@ const Login = () => {
                   id="username"
                   type="text"
                   placeholder="Identificación"
+                  value={numId}
+                  onChange={ (e)=>setNumId(e.target.value)}
+
                 />
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <i className="fas fa-address-book text-white"></i>
@@ -179,6 +146,8 @@ const Login = () => {
                   id="password"
                   type="password"
                   placeholder="Contraseña"
+                  value={contraseña}
+                  onChange={ (e)=>setContraseña(e.target.value)}
                 />
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <i className="fas fa-lock text-white"></i>
