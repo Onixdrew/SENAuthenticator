@@ -4,7 +4,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Logo from "../../public/img/Logo Reconocimiento Facial - Blanco.png";
 import escudo from "../../public/img/logo-sena-naranja-png-2022.png";
 import { useAuth } from '../auth/authProvider';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
 
@@ -12,24 +13,58 @@ const Login = () => {
   const [numId, setNumId]=useState("")
   const [contraseña, setContraseña]=useState("")
   
-  const Autenticador=useAuth()
+  // hooks
+  const Autenticador = useAuth();
+  const navegar=useNavigate()
 
-  if (Autenticador.isAuthenticated) {
-    return <Navigate to="/inicioInstructor" />
-  }
+  // verifica si el usuario ya esta autenticado, y si lo esta
+  // no sele permite salir de la ruta, al login porque debe de caducar la autenticacion
+  // if (Autenticador.isAuthenticated) {
+  //   return <Navigate to="/inicioInstructor" />
+  // }
 
   const enviarForm= async (e)=>{
     e.preventDefault();
-    const apiUrl = process.env.REACT_APP_API_URL;
+  
     try {
-      const response= await fetch(`${apiUrl}/`,{
-        method:'GET',
+      const response = await fetch("http://127.0.0.1:8000/senauthenticator/inicioSesion/", {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "tipo_documento_usuario": tipoId,
+          "numero_documento_usuario": numId,
+          "password": contraseña,
+        })
+      });
+    
+      if (response.ok) {
+        const data = await response.json(); // Convierte la respuesta en JSON
+        console.log("El usuario sí existe en la bd");
         
-      })
-      
+        // redirigir a la página según su rol
+        switch (data.user.rol_usuario) {
+          case "Instructor":
+            navegar("/inicioInstructor");
+            break;
+          case "Aprendiz":
+            navegar("/Register");
+            break;
+          // case "Administrador":
+          //   navegar("/");
+          //   break;
+          default:
+            console.log("Rol no reconocido");
+            break;
+        }
+      } else {
+        console.log("El usuario No existe en bd");
+      }
     } catch (error) {
-      
+      console.log(error);
     }
+    
   }
 
 
@@ -77,9 +112,9 @@ const Login = () => {
 
                 >
                   <option value="">Seleccionar...</option>
-                  <option value="1">Cédula</option>
-                  <option value="2">Tarjeta de identidad</option>
-                  <option value="3">Pasaporte</option>
+                  <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
+                  <option value="Cedula de ciudadania">Cedula de ciudadania</option>
+                  <option value="Cedula de extranjeria">Cedula de extranjeria</option>
                 </select>
                 <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   <i className="fas fa-chevron-down text-white"></i>
