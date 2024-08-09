@@ -13,6 +13,7 @@ def usuario_controlador(request, pk=None): # La función contiene dos parámetro
     # Si existe la pk se manejan los métodos GET, PUT, DELETE
     if pk:
         try:
+          
             usuario = Usuario.objects.get(pk=pk) # Se intenta obtener el objeto por su pk
         except Usuario.DoesNotExist:
             return Response({'error': 'Usuario no encontrado.'}, status=status.HTTP_404_NOT_FOUND) # Si el objeto no existe se devuelve un código de estado 404, indicando que no fue encontrada la solicitud
@@ -57,7 +58,7 @@ def usuario_controlador(request, pk=None): # La función contiene dos parámetro
             except Exception as e:
                 return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)                
 
-        # Solicitud para crear un objeto
+        # Solicitud para crear un usuario
         elif request.method == 'POST':
             try:
                 serializer = UsuarioSerializer(data=request.data) # Se intenta serializar el objeto recibido 
@@ -65,6 +66,7 @@ def usuario_controlador(request, pk=None): # La función contiene dos parámetro
                     serializer.save() # Se guarda 
 
                     user = Usuario.objects.get(numero_documento_usuario=serializer.data['numero_documento_usuario']) # Se obtiene el objeto mediante el número de documento
+
                     user.set_password(serializer.data['password']) # La función set_password() encripta la contraseña para guardarla de forma segura en la base de datos
                     user.save() # Se guarda el usuario con la contraseña encriptada
 
@@ -73,7 +75,7 @@ def usuario_controlador(request, pk=None): # La función contiene dos parámetro
                     return Response({'token': token.key, 'usuario': serializer.data}, status=status.HTTP_201_CREATED) # Se devuelve una respuesta con el token, el usuario y un código de estado 201, indicando que el objeto fue creado
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST) # Si el objeto no es válido, se devuelve un código de estado 400, indicando una solicitud incorrecta
             except Exception as e:
-                return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                return Response({'error': "Ya existe usuario con ese número de documento o userName! "}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             
 
 @api_view(['POST']) # Se utiliza el método POST para enviar las credenciales del usuario al servidor 

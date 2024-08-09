@@ -42,56 +42,45 @@ const Register = () => {
     e.preventDefault();
     
     try {
-
-      // accedo al primer nombre para asignarlo como username
-      const userName = nombre.split(' ')[0]
-
+      // Accede al primer nombre para asignarlo como username
+      const userName = nombre.split(' ')[0];
+  
       const response = await fetch("http://127.0.0.1:8000/senauthenticator/usuario/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          "username":userName,
-          "first_name":nombre,
-          "last_name":apellido,
-          "tipo_documento_usuario":tipoId,
-          "numero_documento_usuario":numId,
-          "genero_usuario":genero,
-          "email":correo,
+          "username": userName,
+          "first_name": nombre,
+          "last_name": apellido,
+          "tipo_documento_usuario": tipoId,
+          "numero_documento_usuario": numId,
+          "genero_usuario": genero,
+          "email": correo,
           "password": contraseña,
           "rol_usuario": rol,
         }),
       });
-
-
-      // ////////// datos que se deben enviar
-    //   { "id": 5,--- no validado
-    //     "username":"Samuel",
-    //    "password": "123",
-    //    "rol_usuario": "Aprendiz",
-    //    "first_name": "Samuel",
-    //    "last_name": "Carvajal",
-    //    "email": "Samuel@gmail.com",
-    //    "tipo_documento_usuario": "Cedula de ciudadania",
-    //    "numero_documento_usuario": "106104789",
-    //    "genero_usuario": "Masculino"
-    //  }
-      
-      if (response.ok || response.status==201) {
+  
+      const data = await response.json(); // Extrae el cuerpo de la respuesta en formato JSON
+  
+      if (response.ok || response.status === 201) {
         console.log("Usuario creado correctamente");
-        navegar("/")
-      }else{
-        console.log("Error al crear el usuario");
-        
+        alert( "Usuario creado correctamente");
+        navegar("/");
+      } else {
+        // Muestra el mensaje de error extraído del cuerpo de la respuesta
+        console.log(data.error || "Ocurrió un error desconocido");
+        alert(data.error || "Ocurrió un error desconocido"); // Muestra el error en una alerta
       }
-
-
+  
     } catch (error) {
       console.log(error);
-      
+      alert("Error en la solicitud: " + error.message); // Muestra el error en una alerta
     }
   };
+  
 
   return (
     <div
