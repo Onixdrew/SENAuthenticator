@@ -1,6 +1,3 @@
-
-# Los serializer convierten los datos a formato json, para que puedan ser utilizados a través de una API.
-
 from rest_framework import serializers
 
 # importacion de modelos
@@ -11,3 +8,7 @@ class ProgramaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Programa
         fields = '__all__'
+        extra_kwargs = {
+            'nombre_programa': {'required': True},
+            'tipo_formacion_programa': {'required': True},
+        }    

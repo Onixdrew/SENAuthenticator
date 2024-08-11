@@ -1,5 +1,3 @@
-# Los serializer convierten los datos a formato json, para que puedan ser utilizados a través de una API.
-
 from rest_framework import serializers
 
 # importacion de modelos
@@ -10,3 +8,8 @@ class IngresoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ingreso
         fields = '__all__'
+        extra_kwargs = {
+            'datos_biometricos_ingreso': {'required': True},
+            'fecha_hora_ingreso': {'required': False},
+            'usuario_ingreso': {'required': False},
+        } 

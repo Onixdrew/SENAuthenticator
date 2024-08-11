@@ -1,5 +1,5 @@
 from django.urls import path
-from app_senauthenticator.controllers import programa, ficha, usuario, registro_facial, objeto, contacto_emergencia, ingreso
+from app_senauthenticator.controllers import programa, ficha, usuario, registro_facial, objeto, ingreso, tutor
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -14,8 +14,8 @@ urlpatterns = [
     path('registroFacial/<int:pk>/', registro_facial.registro_facial_controlador),
     path('objeto/', objeto.objeto_controlador),
     path('objeto/<int:pk>/', objeto.objeto_controlador),
-    path('contactoEmergencia/', contacto_emergencia.contacto_emergencia_controlador),
-    path('contactoEmergencia/<int:pk>/', contacto_emergencia.contacto_emergencia_controlador),
+    path('tutor/', tutor.tutor_controlador),
+    path('tutor/<int:pk>/', tutor.tutor_controlador),
     path('ingreso/', ingreso.ingreso_controlador),
     path('ingreso/<int:pk>/', ingreso.ingreso_controlador),
     path('inicioSesion/', usuario.inicio_sesion),
@@ -27,4 +27,3 @@ if settings.DEBUG:
         settings.MEDIA_URL,
         document_root=settings.MEDIA_ROOT
     )
-    
