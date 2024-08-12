@@ -61,6 +61,7 @@ def usuario_controlador(request, pk=None): # La función contiene dos parámetro
         elif request.method == 'POST':
             try:
                 serializer = UsuarioSerializer(data=request.data) # Se intenta serializar el objeto recibido 
+
                 if serializer.is_valid(): # si el objeto es válido
                     serializer.save() # Se guarda 
 
@@ -103,4 +104,4 @@ def perfil(request):
 
     serializer = UsuarioSerializer(instance=request.user) # Se serializa los datos del usuario
 
-    return Response(f'Iniciaste sesión como {serializer.data["first_name"]} {serializer.data["last_name"]}')
+    return Response(f'El usuario {serializer.data["first_name"]} {serializer.data["last_name"]} está activo en el sistema.')
