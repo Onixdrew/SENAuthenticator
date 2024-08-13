@@ -53,20 +53,20 @@ const Login = () => {
 
 
         // redirigir a la página según su rol
-        // switch (data.user.rol_usuario) {
-        //   case "Instructor":
-        //     navegar("/inicioInstructor");
-        //     break;
-        //   case "Aprendiz":
-        //     navegar("/Register");
-        //     break;
-        //   // case "Administrador":
-        //   //   navegar("/");
-        //   //   break;
-        //   default:
-        //     console.log("Rol no reconocido");
-        //     break;
-        // }
+        switch (data.user.rol_usuario) {
+          case "Instructor":
+            navegar("/inicioInstructor");
+            break;
+          case "Aprendiz":
+            navegar("/aprendiz");
+            break;
+          // case "Administrador":
+          //   navegar("/");
+          //   break;
+          default:
+            console.log("Rol no reconocido");
+            break;
+        }
       } else {
         console.log("El usuario No existe en bd");
       }
@@ -79,7 +79,7 @@ const Login = () => {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8"
+      className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8 "
       style={{
         backgroundImage: "url('https://img.freepik.com/vector-premium/fondo-estructura-molecular-fondo-pantalla-plantilla-ciencia-o-banner-moleculas-adn_191234-1142.jpg')",
         backgroundSize: 'cover',

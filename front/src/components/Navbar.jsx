@@ -3,7 +3,17 @@ import { Link } from "react-router-dom";
 
 import Logo from "../../public/img/Logo Reconocimiento Facial - Blanco.png";
 
-const Navbar = ({item1,item2, item3, ruta1, ruta2, ruta3,color,color2,color3}) => {
+const Navbar = ({
+  item1,
+  item2,
+  item3,
+  ruta1,
+  ruta2,
+  ruta3,
+  color,
+  color2,
+  color3,
+}) => {
   // Estado para controlar la visibilidad del menú móvil
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -28,7 +38,7 @@ const Navbar = ({item1,item2, item3, ruta1, ruta2, ruta3,color,color2,color3}) =
 
   return (
     <>
-      <div className="flex  fixed w-full z-50 flex-col ">
+      <div className="flex   w-full z-50 flex-col ">
         <nav className="flex  items-center justify-between border-b  bg-green-500 p-4">
           <div className="flex items-center xl:ml-16">
             <img src={Logo} alt="Logo" className="w-12 text-black" />
@@ -37,16 +47,48 @@ const Navbar = ({item1,item2, item3, ruta1, ruta2, ruta3,color,color2,color3}) =
 
           {/* Menu Items for larger screens */}
           <div className="hidden md:flex space-x-14">
-            <Link href={ruta1} className={`text-2xl font-serif ${color == 'activo' ? 'text-red-700' : 'text-white'} hover:text-blue-800`} >{item1}</Link>
-            <Link href={ruta2} className={`text-2xl font-serif ${color2 == 'activo' ? 'text-red-700' : 'text-white'} hover:text-blue-800`}>{item2}</Link>
-            <Link href={ruta3} className={`text-2xl font-serif ${color3 == 'activo' ? 'text-red-700' : 'text-white'} hover:text-blue-800`}>{item3}</Link>
+            <Link
+              href={ruta1}
+              className={`text-2xl font-serif ${
+                color == "activo" ? "text-red-700" : "text-white"
+              } hover:text-blue-800`}
+            >
+              {item1}
+            </Link>
+            <Link
+              href={ruta2}
+              className={`text-2xl font-serif ${
+                color2 == "activo" ? "text-red-700" : "text-white"
+              } hover:text-blue-800`}
+            >
+              {item2}
+            </Link>
+            <Link
+              href={ruta3}
+              className={`text-2xl font-serif ${
+                color3 == "activo" ? "text-red-700" : "text-white"
+              } hover:text-blue-800`}
+            >
+              {item3}
+            </Link>
           </div>
 
           {/* Menu Button (Hamburger) for smaller screens */}
           <div className="md:hidden flex items-center">
             <button onClick={toggleMenu} className="text-white">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
               </svg>
             </button>
           </div>
@@ -71,10 +113,7 @@ const Navbar = ({item1,item2, item3, ruta1, ruta2, ruta3,color,color2,color3}) =
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
               >
                 <li>
-                  <Link className="justify-between">
-                    Perfil
-              
-                  </Link>
+                  <Link className="justify-between">Perfil</Link>
                 </li>
                 <li>
                   <Link>Configuraciòn</Link>
@@ -90,14 +129,46 @@ const Navbar = ({item1,item2, item3, ruta1, ruta2, ruta3,color,color2,color3}) =
         {/* Mobile Menu */}
         <div
           ref={menuRef}
-          className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-green-500 `}
+          className={`md:hidden ${
+            isMenuOpen ? "block" : "hidden"
+          } bg-green-500 `}
         >
-          <Link href={ruta1} className="block text-white py-2 p-4 hover:bg-green-600">{item1}</Link>
-          <Link href={ruta2} className="block text-white py-2 p-4 hover:bg-green-600">{item2}</Link>
-          <Link href={ruta3} className="block text-white py-2 p-4 hover:bg-green-600">{item3}</Link>
-          <Link href="#" className="block bg-green-600 text-white py-2 px-4 hover:bg-green-700">Perfil</Link>
-          <Link href="#" className="block bg-green-600 text-white py-2 px-4 hover:bg-green-700">Configuraciòn</Link>
-          <Link href="#" className="block bg-green-600 text-white py-2 px-4 hover:bg-green-700">Salir</Link>
+          <Link
+            href={ruta1}
+            className="block text-white py-2 p-4 hover:bg-green-600"
+          >
+            {item1}
+          </Link>
+          <Link
+            href={ruta2}
+            className="block text-white py-2 p-4 hover:bg-green-600"
+          >
+            {item2}
+          </Link>
+          <Link
+            href={ruta3}
+            className="block text-white py-2 p-4 hover:bg-green-600"
+          >
+            {item3}
+          </Link>
+          <Link
+            href="#"
+            className="block bg-green-600 text-white py-2 px-4 hover:bg-green-700"
+          >
+            Perfil
+          </Link>
+          <Link
+            href="#"
+            className="block bg-green-600 text-white py-2 px-4 hover:bg-green-700"
+          >
+            Configuraciòn
+          </Link>
+          <Link
+            href="#"
+            className="block bg-green-600 text-white py-2 px-4 hover:bg-green-700"
+          >
+            Salir
+          </Link>
         </div>
       </div>
     </>
@@ -105,8 +176,6 @@ const Navbar = ({item1,item2, item3, ruta1, ruta2, ruta3,color,color2,color3}) =
 };
 
 export default Navbar;
-
-
 
 // import React, { useState } from "react";
 // import { Transition } from "@headlessui/react";

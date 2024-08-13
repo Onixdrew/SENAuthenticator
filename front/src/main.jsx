@@ -7,6 +7,7 @@ import InicioIntructor from "./pages/Instructor/inicioIntructor";
 import RutasProtegidas from "./auth/authRoutes.jsx";
 import AuthProvider from "./auth/authProvider.jsx";
 import Register from "./components/Register.jsx";
+import Aprendiz from "./pages/aprendiz.jsx";
 
 const router = createBrowserRouter([
   // Ruta Principal
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/inicioInstructor",
         element: <InicioIntructor></InicioIntructor>,
+      },
+      {
+        path: "/aprendiz",
+        element: <Aprendiz></Aprendiz>,
       },
       
     ],
