@@ -43,21 +43,30 @@ const Login = () => {
         const data = await response.json(); // Convierte la respuesta en JSON
         console.log("El usuario sí existe en la bd");
         
-        // redirigir a la página según su rol
-        switch (data.user.rol_usuario) {
-          case "Instructor":
-            navegar("/inicioInstructor");
-            break;
-          case "Aprendiz":
-            navegar("/Register");
-            break;
-          // case "Administrador":
-          //   navegar("/");
-          //   break;
-          default:
-            console.log("Rol no reconocido");
-            break;
+        const json = await response.json();
+
+        if (json.body.token) {
+          Autenticador.saveUser(json)
         }
+
+
+
+
+        // redirigir a la página según su rol
+        // switch (data.user.rol_usuario) {
+        //   case "Instructor":
+        //     navegar("/inicioInstructor");
+        //     break;
+        //   case "Aprendiz":
+        //     navegar("/Register");
+        //     break;
+        //   // case "Administrador":
+        //   //   navegar("/");
+        //   //   break;
+        //   default:
+        //     console.log("Rol no reconocido");
+        //     break;
+        // }
       } else {
         console.log("El usuario No existe en bd");
       }
