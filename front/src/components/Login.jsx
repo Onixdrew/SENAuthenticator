@@ -49,7 +49,7 @@ const Login = () => {
             navegar("/inicioInstructor");
             break;
           case "Aprendiz":
-            navegar("/Register");
+            navegar("/aprendiz");
             break;
           // case "Administrador":
           //   navegar("/");
@@ -70,7 +70,7 @@ const Login = () => {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8"
+      className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8 "
       style={{
         backgroundImage: "url('https://img.freepik.com/vector-premium/fondo-estructura-molecular-fondo-pantalla-plantilla-ciencia-o-banner-moleculas-adn_191234-1142.jpg')",
         backgroundSize: 'cover',
