@@ -14,7 +14,7 @@ const AuthContext= createContext({
 })
 
 const AuthProvider = ({children}) => {
-  const [isAuthenticated, setIsAuthenticated]= useState(false)
+  const [isAuthenticated, setIsAuthenticated]= useState(true)
   
   // Manejo de tokens
   const [accessToken, setAccessToken]= useState("")
@@ -23,28 +23,31 @@ const AuthProvider = ({children}) => {
 
   async function requestNewAccessToken(refreshToken) {
     try {
-      const response = await fetch("http://127.0.0.1:8000/senauthenticator/usuario/",{
+      const response = await fetch("http://127.0.0.1:8000/senauthenticator/usuario/", {
         method: "POST",
-        headers: {"Content-Type":"application/json"},
-        Authorization: `Bearer ${refreshToken}`
-      })
-      
-      if (response.ok) {
-        const data = await response.json();
-
-        if (data.error) {
-          throw new Error(data.error)
-        }else{
-          throw new Error(response.statusText)
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${refreshToken}`
         }
-
-        return data.body.token
+      });
+  
+      if (!response.ok) {
+        throw new Error(response.statusText);
       }
+  
+      const data = await response.json();
+  
+      if (data.error) {
+        throw new Error(data.error);
+      }
+  
+      return data.body.token;
     } catch (error) {
-      console.log(error);
-      return null
-    } 
+      console.error("Error fetching new access token:", error);
+      return null;
+    }
   }
+  
 
 
   useEffect(()=>{

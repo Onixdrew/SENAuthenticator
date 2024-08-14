@@ -93,11 +93,11 @@ const Login = () => {
           <div className="flex gap-4 mb-6 [@media(max-width:381px)]:justify-center">
             <img src={escudo} alt="Escudo" className=" top-4 left-4 w-16 sm:w-16 md:w-16 lg:w-14 xl:w-16 [@media(max-width:381px)]:w-12" />
                 
-            <logo className='flex items-center'>
+            <div className='flex items-center'>
                     <img src={Logo} alt="Logo" className="mr-3 w-11 sm:w-14 md:w-16 lg:w-11 xl:w-14 " />
                                                     {/* medidas arbitrarias */}
                     <h1 className="text-white text-lg [@media(max-width:381px)]:hidden  sm:text-3xl md:text-3xl lg:text-2xl font-bold">SENAuthenticator</h1>
-            </logo>
+            </div>
           </div>
 
           <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">Bienvenido!</h1>
