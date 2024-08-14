@@ -63,22 +63,16 @@ const InicioIntructor = () => {
             <tbody className="bg-gray-200">
               <tr className="bg-white border-b border-gray-200">
                 <td className="px-4 py-2 flex items-center">
-                  <img
-                    className="h-8 w-8 rounded-full object-cover"
-                    src="https://randomuser.me/api/portraits/men/30.jpg"
-                    alt="Profile Picture"
-                  />
+                  1
                 </td>
                 <td className="px-4 py-2 text-left font-semibold">
                   Dean Lynch
                 </td>
                 <td className="px-4 py-2 text-center">
-                  <button className="bg-indigo-500 text-white px-4 py-2 border rounded-md hover:bg-white hover:border-indigo-500 hover:text-black">
-                    Open Link
-                  </button>
+                 120323550
                 </td>
                 <td className="px-4 py-2 text-center">05/06/2020</td>
-                <td className="px-4 py-2 text-center">10:00</td>
+                <td className="px-4 py-2 text-center">10:00 am</td>
                 <td className="px-4 py-2 text-center text-green-500">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
