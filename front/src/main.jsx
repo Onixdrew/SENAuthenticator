@@ -10,7 +10,8 @@ import Register from "./components/Register.jsx";
 import "./index.css";
 import InicioIntructor from "./pages/Instructor/inicioIntructor.jsx";
 import ReportesInstructor from "./pages/Instructor/reportesInstructor.jsx";
-import Dashboard from "./pages/Instructor/dashboard/dashboard.jsx";
+import Admin from "./pages/Instructor/admin.jsx";
+
 
 const router = createBrowserRouter([
   // Ruta Principal
@@ -36,8 +37,8 @@ const router = createBrowserRouter([
 
       },
       {
-        path: "/Dashboard",
-        element: <Dashboard></Dashboard>,
+        path: "/inicioAdministrador",
+        element: <Admin></Admin>,
 
 
       },

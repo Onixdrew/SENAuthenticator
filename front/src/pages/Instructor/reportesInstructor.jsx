@@ -50,7 +50,7 @@ const ReportesInstructor = () => {
 
         <div className="relative container mx-auto">
           <table className="mt-28 mx-auto table-auto w-full max-w-6xl">
-            <thead className="bg-gray-800 text-gray-300">
+            <thead className="border text-gray-600 ">
               <tr>
                 <th className="px-4 py-2 w-1/6 text-left">Puesto</th>
                 <th className="px-4 py-2 w-1/6 text-left">Nombre</th>
