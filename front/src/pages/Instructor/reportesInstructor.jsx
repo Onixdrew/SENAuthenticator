@@ -1,11 +1,19 @@
 import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { useAuth } from '../../auth/authProvider';
 
 const ReportesInstructor = () => {
+
+   // traer rol de la bd del user para comprobar
+   const rol2="Instructor"
+
+   const Autenticador = useAuth();
+
   return (
     <>
-      <div className="bg-white min-h-screen ">
+    {Autenticador.isAuthenticated && rol2 === "Instructor" ? (
+        <div className="bg-white min-h-screen ">
         <div className="mt-0">
           <Navbar
             item1="inicio"
@@ -101,7 +109,12 @@ const ReportesInstructor = () => {
           </table>
         </div>
       </div>
-      {/* <Footer/> */}
+      
+      ) : (
+        <p className="text-red-500">Error: No tienes permiso para acceder a esta página.</p>
+      )
+    }
+      
     </>
   );
 };
